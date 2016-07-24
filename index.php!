@@ -1,0 +1,158 @@
+<?php
+session_start();
+	//pengecekan session user
+
+error_reporting (E_ALL ^ E_NOTICE);
+include "./config/koneksi.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Proyek Akhir</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cufon-replace.js"></script>
+<script type="text/javascript" src="js/Myriad_Pro_italic_600.font.js"></script>
+<script type="text/javascript" src="js/Myriad_Pro_italic_400.font.js"></script>
+
+<script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/ie6_script_other.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="body1">
+  <div class="main">
+    <header>
+      <div class="wrapper">
+        <h1><a href="index.php" id="logo">Supertel</a><span id="slogan">Tiket Pesawat</span></h1>
+        <div class="right">
+          <nav>
+            <ul id="top_nav">
+              <li></li>
+              <li></li>
+              <li class="bg_none"></li>
+            </ul>
+          </nav>
+          <nav>
+            <ul id="menu">
+              <li><a href="index.php">Home</a></li>
+              <li><a href="layanan.php">Layanan</a></li>
+              <li><a href="profil.php">Profil</a></li>
+			  <li><a href="login.php">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+<div class="main">
+  <div id="banner">
+    </div>
+
+</div>
+<div class="main">
+  <section id="content">
+    <article class="col1">
+      <div class="pad_1">
+        <h2>PESAN TIKET</h2>
+        <form id="form_1" action="?page=pemesanan" method="post">
+          <div class="wrapper pad_bot1">
+            <div class="radio marg_right1">
+              <input type="radio" name="name1" id='oneway'>
+              One Way<br>
+              <input type="radio" name="name1" id='round'>
+              Round Trip </div>
+          </div>
+          <div class="wrapper"> Asal:
+            <div class="">
+              <select name='asal'>
+			  <option>------</option>
+			   <? 
+			   $sql=mysql_query("select * from kota");
+			   while($row=mysql_fetch_array($sql))
+			   {
+			   echo '<option value="'. $row['kota'].'" >'. $row['nama_kota'].'</option>';
+			   
+			   }
+			   ?>
+			  </select>
+            </div>
+          </div>
+          <div class="wrapper"> Tujuan:
+            <div class="">
+              <select name='tujuan'>
+			  <option>------</option>
+			   <? 
+			   $sql=mysql_query("select * from kota");
+			   while($row1=mysql_fetch_array($sql))
+			   {
+			   echo '<option value="'. $row1['kota'].'" >'. $row1['nama_kota'].'</option>';
+			   
+			   }
+			   ?>
+			  </select>
+            </div>
+          </div>
+          <div class="wrapper" id='atas'> Tanggal Keberangkatan:
+            <div class="wrapper">
+              <div class="bg left">
+                <input type="date" name="tanggal1" id='tglberangkat' value="">
+              </div>
+
+            </div>
+          </div>
+          <div class="wrapper" id='bawah' > Tanggal Kembali:
+            <div class="wrapper">
+              <div class="bg left">
+                <? if (radio)?>
+				<input type="date" id='tglkembali' value="">
+              </div>
+            </div>
+          </div>
+		   <div class="wrapper">
+		  <input type='submit' name='go' class='button2' value='GO'>
+          </div>
+        </form>
+       
+      </div>
+    </article>
+	
+		<?php 
+						@$page=$_GET["page"];
+						
+						switch($page)
+						{
+							case "beranda" : include "beranda.php";break;
+							case "proses_lokasi.php" : include "proses_lokasi.php";break;
+							case "pemesanan" : include "pemesanan.php";break;
+							case "pemesan" : include "pemesan.php";break;
+							case "tiket" : include "tiket.php";break;
+							default : include "beranda.php";
+						}
+					?>
+  </section>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>
+
+<script>
+	$(document).ready(function(){
+		$('#oneway').click(function(){
+			$('#bawah').hide();
+		});
+		$('#round').click(function(){
+			$('#bawah').show();
+		});
+	});
+</script>

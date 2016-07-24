@@ -1,0 +1,127 @@
+body 
+{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-size: cover;
+	/*background-color: #eee;*/
+	background-repeat: no-repeat;
+	background-image: url("../img/tehnologijabg.jpg");
+}
+
+.form-area
+{
+	height: auto;
+	padding: 5px;
+	background-color: transparent;
+	/*border-left: 1px solid #ebe;*/
+}
+
+#signin
+{
+	font-family: "Adobe Garamond Pro Bold", helvetica, sans-serif;
+	font-size: 13pt;
+	border-bottom: 1px solid #ebe;
+	text-align: left;
+	padding: 5px;
+	background-color: transparent;
+	position: relative;
+	top: -10px;
+	text-transform: uppercase;
+}
+
+.submit,
+.reset
+{
+	/*background-color: #66CC00;*/
+	position: relative;
+	top: 5px;
+}
+
+#logo
+{
+	padding: 5px;
+	background-color: transparent;
+	/*border-right: 1px solid #ebe;*/
+}
+
+.title
+{
+	top: -10px;
+	padding: 5px;
+	height: auto;
+	font-size: 20pt;
+	text-align: center;
+	position: relative;
+	background-color: transparent;
+	border-bottom: 1px solid #ccc;
+	font-family: "Adobe Caslon Pro Bold", helvetica, sans-serif;
+	/* background: rgba(255, 255, 255, 0.5); */
+}
+
+div.form-group > input[type="text"].user,
+div.form-group > input[type="password"].pass,
+div.form-group > div.col-sm-10 > input[type="text"],
+div.form-group > div.col-sm-10 > input[type="time"]
+{
+	padding: 5px;
+	color: #3D3D3D;
+	font-size: 9pt;
+	font-family: "Adobe Kaiti Std R", helvetica, sans-serif;
+
+}
+
+h2
+{
+	top: -27px;
+	left: -15px;
+	color: #C2C2C2;
+	position: relative;
+
+}
+
+footer
+{
+	top: 10px;
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.warning1
+{
+	position: relative;
+	top: 20px;
+}
+
+tr > th
+{
+	font-family: "Adobe Garamond Pro Bold", helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	background-color: transparent;
+}
+
+tr > td
+{
+	font-size: 10pt;
+	font-family: "Calibri", helvetica, sans-serif;
+}
+
+#table
+{
+	/*padding: 5px;*/
+	position: relative;
+	top: 10px;
+}
+
+label
+{
+	font-size: 10pt;
+	font-family: "Calibri", helvetica, sans-serif;
+}
+
+.alert
+{
+	position: relative;
+	top: 10px;
+}
+
