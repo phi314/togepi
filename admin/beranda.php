@@ -78,16 +78,16 @@
 							<li><a href="?page=datauser.php">Manajemen Pengguna</a></li>
 							<li><a href="?page=dataclient.php">Manajemen Project Owner</a></li>
 							<li><a href="?page=dataproyek.php">Data Proyek</a></li>
-							<li><a href="?page=datajadwal.php">Jadwal Kerja</a></li>
+<!--							<li><a href="?page=datajadwal.php">Jadwal Kerja</a></li>-->
 <!--							<li><a href="#">Kompleksitas</a>-->
 <!--								<ul><a href="?page=datacfp.php">Data CFP</a></ul>-->
 <!--								<ul><a href="?page=datagsc.php">Data GSC</a></ul>-->
 <!--								<ul><a href="?page=nilaikomplek.php">Nilai Kompleksitas</a></ul>-->
 <!--							</li>-->
-							<li><a href="#">Manajemen Resiko</a></li>
-								<ul><a href="?page=dataresiko.php">Identifikasi</a></ul>
-								<ul><a href="?page=tingkat-kepentingan.php">Tingkat Kepentingan</a></ul>
-								<ul><a href="?page=datamitigasi.php">Mitigasi</a></ul>
+<!--							<li><a href="#">Manajemen Resiko</a></li>-->
+<!--                            <ul><a href="?page=dataresiko.php">Identifikasi</a></ul>-->
+<!--                            <ul><a href="?page=tingkat-kepentingan.php">Tingkat Kepentingan</a></ul>-->
+<!--                            <ul><a href="?page=datamitigasi.php">Mitigasi</a></ul>-->
 
 							<li><a href="?page=dataproyek.php">Lihat Progres</a></li>
 						
