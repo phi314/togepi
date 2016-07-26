@@ -276,3 +276,19 @@
 
         return $selesai;
     }
+
+    function get_bobot_and_cost($minggu, $tipe, $id_proyek)
+    {
+        $bobot = 0;
+        $cost = 0;
+
+        $q = mysql_query("SELECT * FROM proyek_evm WHERE minggu='$minggu' AND tipe='$tipe' AND id_proyek='$id_proyek' LIMIT 1");
+        if(mysql_num_rows($q) == 1)
+        {
+            $d = mysql_fetch_object($q);
+            $bobot = $d->bobot;
+            $cost = $d->cost;
+        }
+
+        return [$bobot, $cost];
+    }

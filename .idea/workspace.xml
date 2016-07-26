@@ -23,70 +23,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="detailproyek.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="detailproyek.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/detailproyek.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="647" column="0" selection-start="32525" selection-end="32525" vertical-scroll-proportion="-14.740741" vertical-offset="11248" max-vertical-offset="11844">
+            <state line="382" column="39" selection-start="18315" selection-end="18315" vertical-scroll-proportion="0.7785467" vertical-offset="6426" max-vertical-offset="16236">
               <folding>
-                <marker date="1469562557008" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
-                <marker date="1469562557008" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
-                <marker date="1469562557008" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
-                <marker date="1469562557008" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
-                <marker date="1469562557008" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
-                <marker date="1469562557008" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
-                <marker date="1469562557008" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
-                <marker date="1469562557008" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
-                <marker date="1469562557008" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
-                <marker date="1469562557008" expanded="true" signature="15808:15932" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-                <marker date="1469562557008" expanded="true" signature="18935:19049" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1469562557008" expanded="true" signature="22074:22189" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="22191:22305" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1469562557008" expanded="true" signature="24441:24556" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="24558:24672" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1469562557008" expanded="true" signature="26282:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26321:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26365:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26412:26699" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26744:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26841:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="26894:27209" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="27622:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="27748:28109" placeholder="..." />
-                <marker date="1469562557008" expanded="true" signature="27828:28109" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_bobot.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/komponen/add_bobot.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="119" selection-start="773" selection-end="773" vertical-scroll-proportion="0.716263" vertical-offset="0" max-vertical-offset="578">
-              <folding>
-                <element signature="e#6#98#0" expanded="true" />
-                <marker date="1469563322146" expanded="true" signature="408:498" placeholder="SELECT * FRO..proyek_evm..." />
-                <marker date="1469563322146" expanded="true" signature="573:772" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="library.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/komponen/library.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="10" selection-start="5347" selection-end="5584" vertical-scroll-proportion="-18.074074" vertical-offset="3328" max-vertical-offset="5094">
-              <folding>
-                <element signature="e#6#99#0" expanded="true" />
-                <marker date="1469557134239" expanded="true" signature="196:249" placeholder="SELECT * FRO..proyek_cfp..." />
-                <marker date="1469557134239" expanded="true" signature="484:537" placeholder="SELECT * FRO..proyek_gsc..." />
-                <marker date="1469557134239" expanded="true" signature="1671:1842" placeholder="SELECT count..proyek_stakeholders..." />
-                <marker date="1469557134239" expanded="true" signature="4730:4792" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="4867:4988" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="5696:5762" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="6005:6071" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="6345:6440" placeholder="SELECT tangg..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="6806:6898" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1469557134239" expanded="true" signature="7167:7263" placeholder="SELECT max(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
+                <marker date="1469568422247" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
+                <marker date="1469568422247" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
+                <marker date="1469568422247" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
+                <marker date="1469568422247" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
+                <marker date="1469568422247" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
+                <marker date="1469568422247" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
+                <marker date="1469568422247" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
+                <marker date="1469568422247" expanded="true" signature="15829:15953" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="19391:19505" placeholder="SELECT min(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="23852:23966" placeholder="SELECT min(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="28113:28227" placeholder="SELECT min(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="32225:32339" placeholder="SELECT min(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="36111:36225" placeholder="SELECT min(t..proyek_pekerjaan..." />
+                <marker date="1469568422247" expanded="true" signature="41053:41138" placeholder="SELECT id, n..proyek_pekerjaan..." />
               </folding>
             </state>
           </provider>
@@ -118,10 +75,10 @@
         <option value="$PROJECT_DIR$/admin/detailproyek_kompleksitas.php" />
         <option value="$PROJECT_DIR$/komponen/modal/edit_cfp.php" />
         <option value="$PROJECT_DIR$/admin/beranda.php" />
-        <option value="$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan.php" />
-        <option value="$PROJECT_DIR$/komponen/library.php" />
-        <option value="$PROJECT_DIR$/admin/detailproyek.php" />
         <option value="$PROJECT_DIR$/komponen/add_bobot.php" />
+        <option value="$PROJECT_DIR$/komponen/library.php" />
+        <option value="$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan.php" />
+        <option value="$PROJECT_DIR$/admin/detailproyek.php" />
       </list>
     </option>
   </component>
@@ -233,6 +190,8 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -261,7 +220,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -304,31 +263,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="469" column="58" selection-start="22661" selection-end="22661" vertical-scroll-proportion="0.0" vertical-offset="7270" max-vertical-offset="8712">
           <folding>
-            <marker date="1469562557008" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
-            <marker date="1469562557008" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
-            <marker date="1469562557008" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
-            <marker date="1469562557008" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
-            <marker date="1469562557008" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
-            <marker date="1469562557008" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1469562557008" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
-            <marker date="1469562557008" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
-            <marker date="1469562557008" expanded="true" signature="15808:15932" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="18935:19049" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="22074:22189" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="22191:22305" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="24441:24556" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="24558:24672" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="26282:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26321:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26365:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26412:26699" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26744:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26841:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26894:27209" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27622:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27748:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27828:28109" placeholder="..." />
+            <marker date="1469568422247" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
+            <marker date="1469568422247" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
+            <marker date="1469568422247" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
+            <marker date="1469568422247" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
+            <marker date="1469568422247" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
+            <marker date="1469568422247" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
+            <marker date="1469568422247" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
+            <marker date="1469568422247" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
+            <marker date="1469568422247" expanded="true" signature="15829:15953" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="19391:19505" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="23852:23966" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="28113:28227" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="32225:32339" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="36111:36225" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="41053:41138" placeholder="SELECT id, n..proyek_pekerjaan..." />
           </folding>
         </state>
       </provider>
@@ -554,55 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="81" selection-start="3258" selection-end="3258" vertical-scroll-proportion="1.4013841" vertical-offset="378" max-vertical-offset="1728">
-          <folding>
-            <marker date="1469546134978" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469546134978" expanded="true" signature="-1:-1" placeholder="SELECT id, n..proyek_pekerjaan..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/komponen/library.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="10" selection-start="5347" selection-end="5584" vertical-scroll-proportion="-18.074074" vertical-offset="3328" max-vertical-offset="5094">
-          <folding>
-            <element signature="e#6#99#0" expanded="true" />
-            <marker date="1469557134239" expanded="true" signature="196:249" placeholder="SELECT * FRO..proyek_cfp..." />
-            <marker date="1469557134239" expanded="true" signature="484:537" placeholder="SELECT * FRO..proyek_gsc..." />
-            <marker date="1469557134239" expanded="true" signature="1671:1842" placeholder="SELECT count..proyek_stakeholders..." />
-            <marker date="1469557134239" expanded="true" signature="4730:4792" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="4867:4988" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="5696:5762" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="6005:6071" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="6345:6440" placeholder="SELECT tangg..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="6806:6898" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469557134239" expanded="true" signature="7167:7263" placeholder="SELECT max(t..proyek_pekerjaan..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/komponen/get_new_kode_proyek_by_tipe_proyek.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="32" selection-start="132" selection-end="132" vertical-scroll-proportion="-0.6666667" vertical-offset="36" max-vertical-offset="810">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/detailproyek_kompleksitas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="24" selection-start="3053" selection-end="3095" vertical-scroll-proportion="-15.777778" vertical-offset="870" max-vertical-offset="4770">
-          <folding>
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT kompo..proyek_cfp..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_gsc..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT '$id_..gsc..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_cfp..." />
-            <marker date="1469409457294" expanded="true" signature="-1:-1" placeholder="SELECT p.*, ..proyek_gsc..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,46 +518,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/detailproyek.php">
+    <entry file="file://$PROJECT_DIR$/admin/detailproyek_kompleksitas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="647" column="0" selection-start="32525" selection-end="32525" vertical-scroll-proportion="-14.740741" vertical-offset="11248" max-vertical-offset="11844">
+        <state line="72" column="24" selection-start="3053" selection-end="3095" vertical-scroll-proportion="93.25926" vertical-offset="3814" max-vertical-offset="4770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/komponen/library.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="30" selection-start="7843" selection-end="7843" vertical-scroll-proportion="-20.074074" vertical-offset="4714" max-vertical-offset="5382">
           <folding>
-            <marker date="1469562557008" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
-            <marker date="1469562557008" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
-            <marker date="1469562557008" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
-            <marker date="1469562557008" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
-            <marker date="1469562557008" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
-            <marker date="1469562557008" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1469562557008" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
-            <marker date="1469562557008" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
-            <marker date="1469562557008" expanded="true" signature="15808:15932" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="18935:19049" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="22074:22189" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="22191:22305" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="24441:24556" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="24558:24672" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1469562557008" expanded="true" signature="26282:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26321:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26365:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26412:26699" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26744:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26841:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="26894:27209" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27622:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27748:28109" placeholder="..." />
-            <marker date="1469562557008" expanded="true" signature="27828:28109" placeholder="..." />
+            <element signature="e#6#99#0" expanded="true" />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_cfp..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_gsc..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT count..proyek_stakeholders..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT tangg..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT max(t..proyek_pekerjaan..." />
+            <marker date="1469565754133" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_evm..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="22" selection-start="3012" selection-end="4010" vertical-scroll-proportion="-18.666666" vertical-offset="918" max-vertical-offset="1728">
+          <folding>
+            <marker date="1469566638253" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469566638253" expanded="true" signature="-1:-1" placeholder="SELECT id, n..proyek_pekerjaan..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/add_bobot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="119" selection-start="773" selection-end="773" vertical-scroll-proportion="0.716263" vertical-offset="0" max-vertical-offset="578">
+        <state line="16" column="30" selection-start="299" selection-end="299" vertical-scroll-proportion="-0.027681662" vertical-offset="304" max-vertical-offset="1098">
           <folding>
             <element signature="e#6#98#0" expanded="true" />
-            <marker date="1469563322146" expanded="true" signature="408:498" placeholder="SELECT * FRO..proyek_evm..." />
-            <marker date="1469563322146" expanded="true" signature="573:772" placeholder="INSERT INTO ..." />
+            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_evm..." />
+            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="UPDATE proye..." />
+            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_evm..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/detailproyek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="382" column="39" selection-start="18315" selection-end="18315" vertical-scroll-proportion="0.7785467" vertical-offset="6426" max-vertical-offset="16236">
+          <folding>
+            <marker date="1469568422247" expanded="true" signature="451:542" placeholder="SELECT id_us..proyek_stakeholders..." />
+            <marker date="1469568422247" expanded="true" signature="897:998" placeholder="INSERT INTO ..." />
+            <marker date="1469568422247" expanded="true" signature="1802:2064" placeholder="UPDATE proye..." />
+            <marker date="1469568422247" expanded="true" signature="2684:2763" placeholder="SELECT nama ..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="2874:3087" placeholder="INSERT INTO ..." />
+            <marker date="1469568422247" expanded="true" signature="3896:4435" placeholder="UPDATE proye..." />
+            <marker date="1469568422247" expanded="true" signature="4696:4795" placeholder="SELECT * FRO..proyek..." />
+            <marker date="1469568422247" expanded="true" signature="10531:10549" placeholder="SELECT * FRO..user..." />
+            <marker date="1469568422247" expanded="true" signature="12152:12288" placeholder="SELECT * FRO..proyek_stakeholders..." />
+            <marker date="1469568422247" expanded="true" signature="15829:15953" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="19391:19505" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="23852:23966" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="28113:28227" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="32225:32339" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="36111:36225" placeholder="SELECT min(t..proyek_pekerjaan..." />
+            <marker date="1469568422247" expanded="true" signature="41053:41138" placeholder="SELECT id, n..proyek_pekerjaan..." />
           </folding>
         </state>
       </provider>

@@ -339,11 +339,11 @@
                     <tr>
                         <th>Nama</th>
                         <th>Durasi</th>
-                        <th>Minggu</th>
+<!--                        <th>Minggu</th>-->
                         <th>Tanggal Mulai</th>
                         <th>Tanggal Selesai</th>
-                        <th>Bobot BCWS</th>
-                        <th>Bobot BCWP</th>
+<!--                        <th>Bobot BCWS</th>-->
+<!--                        <th>Bobot BCWP</th>-->
                         <th>Aksi</th>
                     </tr>
                     </thead>
@@ -355,11 +355,11 @@
                         <tr>
                             <td class="<?php echo empty($d_pekerjaan->parent) ? 'info' : ''; ?>"><?php echo $d_pekerjaan->nama; ?></td>
                             <td><?php echo $d_pekerjaan->have_child ? get_parent_durasi($d_pekerjaan->id) : durasi($d_pekerjaan->tanggal_mulai, $d_pekerjaan->tanggal_selesai); ?> Hari</td>
-                            <td><pre><?php // get_minggu_bcws($d_pekerjaan->id); ?></pre></td>
+<!--                            <td><pre>--><?php //// get_minggu_bcws($d_pekerjaan->id); ?><!--</pre></td>-->
                             <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_mulai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_mulai); ?></td>
                             <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_selesai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_selesai); ?></td>
-                            <td><?php echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?></td>
-                            <td><?php echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?></td>
+<!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?><!--</td>-->
+<!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?><!--</td>-->
                             <td>
                                 <button class="btn btn-link btn-xs btn-edit-pekerjaan" data-toggle="modal" data-target="#edit-pekerjaan" data-id="<?php echo $d_pekerjaan->id; ?>">Edit</button>
                             </td>
@@ -377,6 +377,10 @@
                 <li><a href="#table-bcws" class="nav active" data-toggle="tab">BCWS</a> </li>
                 <li><a href="#table-bcwp" class="nav" data-toggle="tab">BCWP</a> </li>
                 <li><a href="#table-acwp" class="nav" data-toggle="tab">ACWP</a></li>
+                <li><a href="#table-sv" class="nav" data-toggle="tab">SV</a></li>
+                <li><a href="#table-cv" class="nav" data-toggle="tab">CV</a></li>
+                <li><a href="#table-svi" class="nav" data-toggle="tab">SPI</a></li>
+                <li><a href="#table-cpi" class="nav" data-toggle="tab">CPI</a></li>
             </ul>
 
 
@@ -396,6 +400,7 @@
                                     <th>Periode</th>
                                     <th>Bobot</th>
                                     <th>Cost</th>
+                                    <th>Kumulatif</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -409,24 +414,37 @@
                                     $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
 
                                     $minggu_ke = 1;
+                                    $kumulatif = 0;
                                     foreach($daterange as $key => $date)
                                     {
                                         if($key < 5)
                                         {
+                                            $bulan = $date->format('m');
                                             $start =  $date->format('d');
                                             $start_default = $date->format('Y-m-d');
                                             $date->add(new DateInterval('P6D'));
                                             $end = $date->format('d');
-                                            $endt_default = $date->format('Y-m-d');
+                                            $end_default = $date->format('Y-m-d');
+
+                                            $bobot_and_cost = get_bobot_and_cost($minggu_ke, 'bcws', $id_proyek);
+                                            $kumulatif = $kumulatif + $bobot_and_cost[1];
                                             ?>
                                             <tr>
-                                                <td><?php echo $minggu_ke++; ?></td>
-                                                <td><?php echo getBulan($date->format('m')); ?></td>
+                                                <td><?php echo $minggu_ke; ?></td>
+                                                <td><?php echo getBulan($bulan); ?></td>
                                                 <td><?php echo $start ?> - <?php  echo $end ?></td>
-                                                <td><input type="text" name="bobot_bcws[]" class="form-control input-bobot" data-tipe="bcws" data-id-proyek="<?php echo $d->id; ?>" data-minggu="<?php echo $minggu_ke; ?>" data-start="<?php echo $start_default; ?>" data-end="<?php echo $endt_default; ?>"></td>
+                                                <td>
+                                                    <div class="input-group col-md-3">
+                                                        <input type="text" name="bobot_bcws[]" class="form-control input-bobot col-md-2" data-tipe="bcws" data-idproyek="<?php echo $d->id; ?>" data-minggu="<?php echo $minggu_ke; ?>" data-start="<?php echo $start_default; ?>" data-end="<?php echo $end_default; ?>" value="<?php echo $bobot_and_cost[0]; ?>">
+                                                        <span class="input-group-addon">%</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="bcws-cost-<?php echo $minggu_ke; ?>">Rp. <?php echo format_rupiah($bobot_and_cost[1]); ?></span> </td>
+                                                <td><span class="bcws-kumulatif-<?php echo $minggu_ke; ?>">Rp. <?php echo format_rupiah($kumulatif); ?></span> </td>
                                             </tr>
                                         <?php
                                         }
+                                        $minggu_ke++;
                                     };
                                 ?>
                                 </tbody>
@@ -449,6 +467,8 @@
                                     <th>Bulan</th>
                                     <th>Periode</th>
                                     <th>Bobot</th>
+                                    <th>Cost</th>
+                                    <th>Kumulatif</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -462,15 +482,38 @@
                                 $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
 
                                 $minggu_ke = 1;
-                                foreach($daterange as $date)
+                                $kumulatif = 0;
+                                foreach($daterange as $key => $date)
                                 {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $minggu_ke++; ?></td>
-                                        <td><?php echo $date->format('M'); ?></td>
-                                        <td><?php echo $date->format('d'); ?> - <?php $date->add(new DateInterval('P6D')); echo $date->format('d'); ?></td>
-                                    </tr>
-                                <?php
+                                    if($key < 5)
+                                    {
+                                        $bulan = $date->format('m');
+                                        $start =  $date->format('d');
+                                        $start_default = $date->format('Y-m-d');
+                                        $date->add(new DateInterval('P6D'));
+                                        $end = $date->format('d');
+                                        $end_default = $date->format('Y-m-d');
+
+                                        $bobot_and_cost = get_bobot_and_cost($minggu_ke, 'bcwp', $id_proyek);
+
+                                        $kumulatif = $kumulatif + $bobot_and_cost[1];
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $minggu_ke; ?></td>
+                                            <td><?php echo getBulan($bulan); ?></td>
+                                            <td><?php echo $start ?> - <?php  echo $end ?></td>
+                                            <td>
+                                                <div class="input-group col-md-3">
+                                                    <input type="text" name="bobot_bcwp[]" class="form-control input-bobot col-md-2" data-tipe="bcwp" data-idproyek="<?php echo $d->id; ?>" data-minggu="<?php echo $minggu_ke; ?>" data-start="<?php echo $start_default; ?>" data-end="<?php echo $end_default; ?>" value="<?php echo $bobot_and_cost[0]; ?>">
+                                                    <span class="input-group-addon">%</span>
+                                                </div>
+                                            </td>
+                                            <td><span class="bcwp-cost-<?php echo $minggu_ke; ?>">Rp. <?php echo format_rupiah($bobot_and_cost[1]); ?></span> </td>
+                                            <td><span class="bcwp-kumulatif-<?php echo $minggu_ke; ?>">Rp. <?php echo format_rupiah($kumulatif); ?></span> </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    $minggu_ke++;
                                 };
                                 ?>
                                 </tbody>
@@ -492,7 +535,8 @@
                                     <th>Minggu Ke-</th>
                                     <th>Bulan</th>
                                     <th>Periode</th>
-                                    <th>Bobot</th>
+                                    <th>Cost</th>
+                                    <th>Kumulatif</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -506,15 +550,37 @@
                                 $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
 
                                 $minggu_ke = 1;
-                                foreach($daterange as $date)
+                                $kumulatif = 0;
+                                foreach($daterange as $key => $date)
                                 {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $minggu_ke++; ?></td>
-                                        <td><?php echo getBulan($date->format('m')); ?></td>
-                                        <td><?php echo $date->format('d'); ?> - <?php $date->add(new DateInterval('P6D')); echo $date->format('d'); ?></td>
-                                    </tr>
-                                <?php
+                                    if($key < 5)
+                                    {
+                                        $bulan = $date->format('m');
+                                        $start =  $date->format('d');
+                                        $start_default = $date->format('Y-m-d');
+                                        $date->add(new DateInterval('P6D'));
+                                        $end = $date->format('d');
+                                        $end_default = $date->format('Y-m-d');
+
+                                        $bobot_and_cost = get_bobot_and_cost($minggu_ke, 'acwp', $id_proyek);
+                                        $kumulatif = $kumulatif + $bobot_and_cost[1];
+
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $minggu_ke; ?></td>
+                                            <td><?php echo getBulan($bulan); ?></td>
+                                            <td><?php echo $start ?> - <?php  echo $end ?></td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Rp. </span>
+                                                    <input type="text" name="cost_acwp[]" class="form-control input-cost-acwp col-md-2" data-tipe="acwp" data-idproyek="<?php echo $d->id; ?>" data-minggu="<?php echo $minggu_ke; ?>" data-start="<?php echo $start_default; ?>" data-end="<?php echo $end_default; ?>" value="<?php echo $bobot_and_cost[1]; ?>">
+                                                </div>
+                                            </td>
+                                            <td><span class="acwp-kumulatif-<?php echo $minggu_ke; ?>">Rp. <?php echo format_rupiah($kumulatif); ?></span> </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    $minggu_ke++;
                                 };
                                 ?>
                                 </tbody>
@@ -522,6 +588,143 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="tab-pane" id="table-sv">
+                    <!-- Tabel SV -->
+                    <h2>Scheduling Variance (SV)</h2>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Minggu Ke-</th>
+                                    <th>Bulan</th>
+                                    <th>Periode</th>
+                                    <th>BCWS</th>
+                                    <th>BCWP</th>
+                                    <th>SV</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $q_interval_proyek_pekerjaan =  mysql_query("SELECT min(tanggal_mulai) as mulai, max(tanggal_selesai) as selesai FROM proyek_pekerjaan WHERE id_proyek='$d->id'") or die(mysql_error());
+                                $d_interval_proyek_pekerjaan = mysql_fetch_object($q_interval_proyek_pekerjaan);
+                                $tanggal_mulai_proyek = new DateTime($d_interval_proyek_pekerjaan->mulai);
+                                $tanggal_selesai_proyek = new DateTime($d_interval_proyek_pekerjaan->selesai);
+
+                                $interval = new DateInterval('P1W7D');
+                                $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
+
+                                $minggu_ke = 1;
+                                $kumulatif_bcws = 0;
+                                $kumulatif_bcwp = 0;
+                                foreach($daterange as $key => $date)
+                                {
+                                    if($key < 5)
+                                    {
+                                        $bulan = $date->format('m');
+                                        $start =  $date->format('d');
+                                        $start_default = $date->format('Y-m-d');
+                                        $date->add(new DateInterval('P6D'));
+                                        $end = $date->format('d');
+                                        $end_default = $date->format('Y-m-d');
+
+                                        $bobot_and_cost_bcws = get_bobot_and_cost($minggu_ke, 'bcws', $id_proyek);
+                                        $bobot_and_cost_bcwp = get_bobot_and_cost($minggu_ke, 'bcwp', $id_proyek);
+
+
+                                        $kumulatif_bcws = $kumulatif_bcws + $bobot_and_cost_bcws[1];
+                                        $kumulatif_bcwp = $kumulatif_bcwp + $bobot_and_cost_bcwp[1];
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $minggu_ke; ?></td>
+                                            <td><?php echo getBulan($bulan); ?></td>
+                                            <td><?php echo $start ?> - <?php  echo $end ?></td>
+                                            <td><?php echo format_rupiah($kumulatif_bcws); ?></td>
+                                            <td><?php echo format_rupiah($kumulatif_bcwp); ?></td>
+                                            <td><?php $sv = $kumulatif_bcwp - $kumulatif_bcws; echo format_rupiah($sv); ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    $minggu_ke++;
+                                };
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="table-cv">
+                    <!-- Tabel CV -->
+                    <h2>Cost Variance (CV)</h2>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Minggu Ke-</th>
+                                    <th>Bulan</th>
+                                    <th>Periode</th>
+                                    <th>BCWS</th>
+                                    <th>BCWP</th>
+                                    <th>CV</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $q_interval_proyek_pekerjaan =  mysql_query("SELECT min(tanggal_mulai) as mulai, max(tanggal_selesai) as selesai FROM proyek_pekerjaan WHERE id_proyek='$d->id'") or die(mysql_error());
+                                $d_interval_proyek_pekerjaan = mysql_fetch_object($q_interval_proyek_pekerjaan);
+                                $tanggal_mulai_proyek = new DateTime($d_interval_proyek_pekerjaan->mulai);
+                                $tanggal_selesai_proyek = new DateTime($d_interval_proyek_pekerjaan->selesai);
+
+                                $interval = new DateInterval('P1W7D');
+                                $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
+
+                                $minggu_ke = 1;
+                                $kumulatif_bcwp = 0;
+                                $kumulatif_acwp = 0;
+                                foreach($daterange as $key => $date)
+                                {
+                                    if($key < 5)
+                                    {
+                                        $bulan = $date->format('m');
+                                        $start =  $date->format('d');
+                                        $start_default = $date->format('Y-m-d');
+                                        $date->add(new DateInterval('P6D'));
+                                        $end = $date->format('d');
+                                        $end_default = $date->format('Y-m-d');
+
+                                        $bobot_and_cost_bcwp = get_bobot_and_cost($minggu_ke, 'bcwp', $id_proyek);
+                                        $bobot_and_cost_acwp = get_bobot_and_cost($minggu_ke, 'acwp', $id_proyek);
+
+
+                                        $kumulatif_bcwp = $kumulatif_bcwp + $bobot_and_cost_bcwp[1];
+                                        $kumulatif_acwp = $kumulatif_acwp + $bobot_and_cost_acwp[1];
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $minggu_ke; ?></td>
+                                            <td><?php echo getBulan($bulan); ?></td>
+                                            <td><?php echo $start ?> - <?php  echo $end ?></td>
+                                            <td><?php echo format_rupiah($kumulatif_bcwp); ?></td>
+                                            <td><?php echo format_rupiah($kumulatif_acwp); ?></td>
+                                            <td><?php $cv = $kumulatif_bcwp - $kumulatif_acwp; echo format_rupiah($cv); ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    $minggu_ke++;
+                                };
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -575,24 +778,24 @@
                                     <input type="date" name="tanggal_selesai" class="form-control datepicker" required="true"/>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2">Bobot BCWS</label>
-                                <div class="col-sm-3">
-                                    <div class="input-group">
-                                        <input type="text" name="bobot_bcws" class="form-control" />
-                                        <span class="input-group-addon">%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2">Bobot BCWP</label>
-                                <div class="col-sm-3">
-                                    <div class="input-group">
-                                        <input type="text" name="bobot_bcwp" class="form-control" />
-                                        <span class="input-group-addon">%</span>
-                                    </div>
-                                </div>
-                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-sm-2">Bobot BCWS</label>-->
+<!--                                <div class="col-sm-3">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="text" name="bobot_bcws" class="form-control" />-->
+<!--                                        <span class="input-group-addon">%</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-sm-2">Bobot BCWP</label>-->
+<!--                                <div class="col-sm-3">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="text" name="bobot_bcwp" class="form-control" />-->
+<!--                                        <span class="input-group-addon">%</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <button type="submit" name="add_pekerjaan" class="btn btn-success">Simpan Data</button>
                         </form>
                     </div>
@@ -608,6 +811,9 @@
         </div>
 
         <script type="text/javascript">
+
+            var total_anggaran = <?php echo $d->biaya; ?>;
+
             $('.btn-edit-pekerjaan').click(function(){
                 var id = $(this).data('id');
 
@@ -624,24 +830,62 @@
                 })
             });
 
+            function hitung_cost(bobot, total_anggaran){
+                return (bobot/100) * total_anggaran;
+            }
+
             $('.input-bobot').keyup(function(){
-                var id_proyek = $(this).data('id_proyek');
+                var id_proyek = $(this).data('idproyek');
                 var minggu = $(this).data('minggu');
                 var tipe = $(this).data('tipe');
                 var periode_start = $(this).data('start');
                 var periode_end = $(this).data('end');
+                var bobot = $(this).val();
+
+                var cost = hitung_cost(bobot, total_anggaran);
+
+                $('.' + tipe + '-cost-'+minggu).text('Rp. ' + cost);
 
                 $.ajax({
-                    url: base_url + 'komponen/add_bobot.php'
+                    url: base_url + 'komponen/add_bobot.php',
                     type: 'post',
                     data: {
                         id_proyek: id_proyek,
                         minggu: minggu,
                         tipe: tipe,
                         periode_start: periode_start,
-                        periode_end: periode_end
+                        periode_end: periode_end,
+                        bobot: bobot,
+                        cost: cost
                     },
-                    dataType: 'json'
+                    dataType: 'json',
+                    success: function(json)
+                    {
+                        console.log(json);
+                    }
+                });
+            });
+
+            $('.input-cost-acwp').keyup(function(){
+                var id_proyek = $(this).data('idproyek');
+                var minggu = $(this).data('minggu');
+                var tipe = $(this).data('tipe');
+                var periode_start = $(this).data('start');
+                var periode_end = $(this).data('end');
+                var cost = $(this).val();
+
+                $.ajax({
+                    url: base_url + 'komponen/add_bobot.php',
+                    type: 'post',
+                    data: {
+                        id_proyek: id_proyek,
+                        minggu: minggu,
+                        tipe: tipe,
+                        periode_start: periode_start,
+                        periode_end: periode_end,
+                        cost: cost
+                    },
+                    dataType: 'json',
                     success: function(json)
                     {
                         console.log(json);
