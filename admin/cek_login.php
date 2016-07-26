@@ -29,7 +29,7 @@
 				
 ?>
 	<script type="text/javascript">
-	document.location="http://localhost/togepi/admin/beranda.php";
+	document.location="http://localhost/nusantec/admin/beranda.php";
 	</script>
 <?php
 			

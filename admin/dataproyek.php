@@ -23,7 +23,7 @@
 					<th>Kode Proyek</th>
 					<th>Nama Proyek</th>
 					<th>Nama Client</th>
-					<th>Biaya</th>
+					<th>Biaya (Rp.)</th>
 					<th>Tanggal Mulai</th>
 					<th>Tanggal Selesai</th>
 					<th>Status</th>
@@ -36,19 +36,20 @@
 							join client c
 							on p.id_client=c.id_client
 							order by p.created_at desc";
-					$query=mysql_query($Ssql);
+					$query=mysql_query($Ssql) or die(mysql_error());
 					$no = 1;
+                    echo mysql_error();
 					while ($data = mysql_fetch_assoc($query))
 					{
 				?>
 					<tr>
-						<td><?php echo $no;?></td>
+						<td><?php echo $no;?>.</td>
 						<td><?php echo $data['kode_proyek']; ?></td>
 						<td><?php echo $data['nama_proyek']; ?></td>
 						<td><?php echo $data['nama_client']; ?></td>
-						<td><?php echo $data['biaya']; ?></td>
-						<td><?php echo $data['tanggal_mulai']; ?></td>
-						<td><?php echo $data['tanggal_selesai']; ?></td>
+						<td><?php echo format_rupiah($data['biaya']); ?></td>
+						<td><?php echo tanggal_format_indonesia($data['tanggal_mulai']); ?></td>
+						<td><?php echo tanggal_format_indonesia($data['tanggal_selesai']); ?></td>
 						<td><?php echo $data['status']; ?></td>
 						<td>
 							<a href="beranda.php?page=detailproyek.php&id=<?php echo $data['id']; ?>">Detail</a>

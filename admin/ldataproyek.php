@@ -22,20 +22,20 @@
 				</tr>
 				<?php
 					//$sql = mysql_query("SELECT * FROM proyek");
-					$Ssql="select p.id_proyek, p.id_client,p.nama_proyek,p.biaya,p.tanggal_mulai,p.tanggal_selesai,p.status,
+					$Ssql="select p.id, p.kode_proyek, p.id_client,p.nama_proyek,p.biaya,p.tanggal_mulai,p.tanggal_selesai,p.status,
 							c.id_client,c.nama_client
 							from proyek p
 							join client c
 							on p.id_client=c.id_client
-							order by p.id_proyek";
-					$query=mysql_query($Ssql);
+							order by p.id";
+					$query=mysql_query($Ssql)  or die(mysql_error());
 					$no = 1;
 					while ($data = mysql_fetch_assoc($query))
 					{
 				?>
 					<tr>
 						<td><?php echo $no;?></td>
-						<td><?php echo $data['id_proyek']; ?></td>
+						<td><?php echo $data['kode_proyek']; ?></td>
 						<td><?php echo $data['nama_proyek']; ?></td>
 						<td><?php echo $data['nama_client']; ?></td>
 						<td><?php echo $data['biaya']; ?></td>

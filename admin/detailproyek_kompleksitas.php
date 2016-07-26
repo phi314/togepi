@@ -92,7 +92,7 @@
                             $q_cfp = mysql_query("SELECT * FROM proyek_cfp WHERE id_proyek='$id_proyek' ORDER BY komponen_sistem ASC");
                             while($d_cfp = mysql_fetch_object($q_cfp)):
                                 ?>
-                                <tr>
+                                <tr id="cfp-<?php echo $d_cfp->id; ?>">
                                     <td><?php echo $i++; ?>.</td>
                                     <td><?php echo $d_cfp->komponen_sistem; ?></td>
                                     <td><?php echo $d_cfp->nama_kegiatan; ?></td>
@@ -101,7 +101,7 @@
                                     <td><?php echo $d_cfp->komplek; ?></td>
                                     <td><?php echo $d_cfp->total; ?></td>
                                     <td>
-
+                                        <button type="button" data-id="<?php echo $d_cfp->id; ?>" class="delete_proyek_cfp btn btn-link btn-xs">hapus</button>
                                     </td>
                                 </tr>
                             <?php
@@ -152,7 +152,6 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>No.</th>
                             <th>Nama GSC</th>
                             <th>Nilai</th>
                         </tr>
@@ -164,7 +163,6 @@
                         while($d_gsc = mysql_fetch_object($q_gsc)):
                             ?>
                             <tr>
-                                <td><?php echo $i++; ?>.</td>
                                 <td><?php echo $d_gsc->nama_gsc; ?></td>
                                 <td><input type="text" name="nilai[]" data-id-proyek-gsc="<?php echo $d_gsc->id; ?>" value="<?php echo $d_gsc->nilai; ?>" class="form-control"></td>
                             </tr>
@@ -187,25 +185,30 @@
 
                     <b>FP = CFP * (0.65 + 0.01 * RCAF)</b>
 
-                    <?php $total_nilai_cfp = 716; ?>
                     <br>
                     FP = <?php echo $total_nilai_cfp; ?> * (0.65 + 0.01 * <?php echo $total_nilai_rcaf; ?>)
                     <br>
                     FP = <?php echo $fp = $total_nilai_cfp * (0.65 + 0.01 * $total_nilai_rcaf); ?>
 
-                    <h1 class="text-center">Estimasi Kompleksitas<br><i><?php echo $fp; ?></i></h1>
-                    <hr>
-                    <h1 class="text-center">
-                        Perkiraan Waktu<br>
-                        <?php
-                            $jumlah_developer = count_developer($id_proyek);
-                            $static_fp = 6;
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h1 class="text-center">Estimasi Kompleksitas<br><b><?php echo $fp; ?></b></h1>
+                        </div>
+                        <div class="col-md-4">
+                            <h1 class="text-center">
+                                Perkiraan Waktu Selesai<br>
+                                <?php
+                                $jumlah_developer = count_developer($id_proyek);
+                                $static_fp = 6;
 
-                            // perkiraan waktu
-                            $pw = round($fp) / ($jumlah_developer * $static_fp);
-                        ?>
-                        <i><?php echo round($pw); ?> Minggu</i>
-                    </h1>
+                                // perkiraan waktu
+                                $pw = round($fp) / ($jumlah_developer * $static_fp);
+                                ?>
+                                <b><?php echo round($pw); ?> Minggu</b>
+                            </h1>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,6 +234,26 @@
                         $('#total-rcaf').text(data.total_rcaf);
                     }
                 });
+            });
+
+            $('.delete_proyek_cfp').click(function(){
+
+                var id = $(this).data('id');
+
+                var c = confirm('Anda yakin akan menghapus data ini?');
+                if(c == true)
+                {
+                    $.ajax({
+                        url: base_url + 'komponen/delete_proyek_cfp.php',
+                        type: 'get',
+                        data: {
+                            id_proyek_cfp: id
+                        },
+                        success: function(){
+                            $('#cfp-' + id).hide();
+                        }
+                    })
+                }
             });
         </script>
 

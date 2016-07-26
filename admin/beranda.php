@@ -82,7 +82,7 @@
 <!--							<li><a href="#">Kompleksitas</a>-->
 <!--								<ul><a href="?page=datacfp.php">Data CFP</a></ul>-->
 <!--								<ul><a href="?page=datagsc.php">Data GSC</a></ul>-->
-<!--								<ul><a href="?page=nilaikomplek.php">Nilai Kompleksitas</a></ul>								-->
+<!--								<ul><a href="?page=nilaikomplek.php">Nilai Kompleksitas</a></ul>-->
 <!--							</li>-->
 							<li><a href="#">Manajemen Resiko</a></li>
 								<ul><a href="?page=dataresiko.php">Identifikasi</a></ul>
@@ -185,6 +185,10 @@
 		<!-- end body -->
         <script type="text/javascript">
             var base_url = "http://localhost/nusantec/";
+
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
         </script>
 	</body>
 </html>

@@ -18,8 +18,8 @@ function editcfp(id_kompleksitas, komponen_sistem, nama_kegiatan, sederhana, men
 	document.feditcfp.komplek.value 			= komplekstr;
 }
 	<?php
-		$id_kompleksitas = $_GET['id_kompleksitas'];
-		$Ssql="SELECT * FROM kompleksitas where id_kompleksitas='$id_kompleksitas' ";
+		@$id_kompleksitas = $_GET['id_kompleksitas'];
+		$Ssql=mysql_query("SELECT * FROM kompleksitas where id_kompleksitas='$id_kompleksitas'");
 		$rs=mysql_fetch_assoc($Ssql);
 	?>
 </script>
