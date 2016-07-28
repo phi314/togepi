@@ -98,7 +98,7 @@
 							<li><a href="?page=datajadwal.php">Lihat Jadwal Kerja</a></li>
 							<li><a href="?page=dataproyek.php">Lihat Kompleksitas</a>
 							<li><a href="?page=dataproyek.php">Lihat Manajemen Resiko</a></li>
-							<li><a href="?page=dataproyek.php">Lihat Progres</a></li>
+							<li><a href="?page=dataprogres.php">Lihat Progres</a></li>
 							
 						<?php } else if($data['status'] == "DEVELOPER" ){ ?>
 							<li><a href="?page=ldatauser.php">Lihat Data Pengguna</a></li>
@@ -107,7 +107,7 @@
 							<li><a href="?page=datajadwal.php">Jadwal Kerja</a></li>
 							<li><a href="?page=dataproyek.php">Kompleksitas</a>
 							<li><a href="?page=dataproyek.php">Manajemen Resiko</a></li>
-							<li><a href="?page=dataproyek.php">Lihat Progres</a></li>
+							<li><a href="?page=dataprogres.php">Lihat Progres</a></li>
 						
 						<?php } ?>
 							<li><a href="logout.php">Keluar</a></li>
@@ -117,8 +117,10 @@
 				</div>
 
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Selamat Datang, <?php echo $data['nama'];?></h1>
-					<?php 
+                    <div class="alert alert-success">
+                        <h5 class="page-header">Selamat Datang, <?php echo $data['nama'];?></h5>
+                    </div>
+					<?php
 						@$page=$_GET["page"];
 						
 						switch($page)
@@ -155,7 +157,9 @@
 
                             case "detailproyek.php" : include "detailproyek.php"; break;
                             case "detailproyek_kompleksitas.php" : include "detailproyek_kompleksitas.php"; break;
-						}
+
+                            case "dataprogres.php" : include "dataprogres.php"; break;
+                        }
 					?>
 				</div>
 

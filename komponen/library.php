@@ -187,7 +187,18 @@
         $to = new DateTime($to);
         $diff = $to->diff($from);
 
-        return $diff->days + 1;
+        switch($tipe)
+        {
+            case 'hari':
+                $diff = $diff->days + 1;
+                break;
+            case 'minggu':
+                $diff = $diff->days/7;
+                $diff = round($diff);
+                break;
+        }
+
+        return $diff;
     }
 
     function get_minggu_bcws($id_proyek_pekerjaan)
