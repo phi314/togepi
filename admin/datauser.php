@@ -22,7 +22,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Username</th>
-                    <th>Password</th>
+<!--                    <th>Password</th>-->
                     <th>E-mail</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -40,7 +40,7 @@
 						<td><?php echo $no;?></td>
 						<td><?php echo $data['nama']; ?></td>
 						<td><?php echo $data['username']; ?></td>
-						<td><?php echo $data['password']; ?></td>
+<!--						<td>--><?php //echo $data['password']; ?><!--</td>-->
 						<td><?php echo $data['email']; ?></td>
 						<td><?php echo $data['status']; ?></td>
 						<td>
