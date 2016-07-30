@@ -16,15 +16,18 @@
 			require_once "proses_updateclient.php";
 		?>
 
-		<div class="table-responsive" id="table">
-			<table class="table table-striped">
-				<tr>
-					<th>No</th>
-					<th>Project Owner</th>
-					<th>E-mail</th>
-					<th>Nama Instansi</th>
-					<th>Aksi</th>
-				</tr>
+		<div class="table-responsive" id="table-client">
+			<table class="table datatable-simple">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Project Owner</th>
+                    <th>E-mail</th>
+                    <th>Nama Instansi</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+				<tbody>
 				<?php
 					$sql = mysql_query("SELECT * FROM client");
 
@@ -47,6 +50,7 @@
 					$no++;
 					}
 				?>
+                </tbody>
 			</table>
 		</div>
 

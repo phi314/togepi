@@ -15,17 +15,20 @@
 			require_once "proses_user.php";
 			require_once "proses_updateuser.php";
 		?>
-		<div class="table-responsive" id="table">
-			<table class="table table-striped">
-				<tr>
-					<th>No</th>
-					<th>Nama</th>
-					<th>Username</th>
-					<th>Password</th>
-					<th>E-mail</th>
-					<th>Status</th>
-					<th>Aksi</th>
-				</tr>
+		<div class="table-responsive" id="table-user">
+			<table class="table datatable-simple">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>E-mail</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
 				<?php
 					$sql = mysql_query("SELECT * FROM user");
 
@@ -50,6 +53,7 @@
 					$no++;
 					}
 				?>
+                </tbody>
 			</table>
 		</div>
 
