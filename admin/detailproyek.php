@@ -60,12 +60,13 @@
                     @$tanggal_selesai = $_POST['tanggal_selesai'];
                     @$bobot_bcws = $_POST['bobot_bcws'];
                     @$bobot_bcwp = $_POST['bobot_bcwp'];
+                    @$status = $_POST['status'];
 
                     $q = mysql_query("SELECT nama FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' AND nama='$nama'");
                     if(mysql_num_rows($q) == 0)
                     {
-                        mysql_query("INSERT INTO proyek_pekerjaan(id_proyek, nama, have_child, parent, tanggal_mulai, tanggal_selesai)
-                      VALUES('$id_proyek', '$nama', '$have_child', '$parent', '$tanggal_mulai', '$tanggal_selesai')");
+                        mysql_query("INSERT INTO proyek_pekerjaan(id_proyek, nama, have_child, parent, tanggal_mulai, tanggal_selesai, bobot_bcws, status)
+                      VALUES('$id_proyek', '$nama', '$have_child', '$parent', '$tanggal_mulai', '$tanggal_selesai', '$bcws', '$status')");
 
                         $alert = "Berhasil Tambah Pekerjaan";
                     }
@@ -85,6 +86,7 @@
                     @$tanggal_selesai = $_POST['tanggal_selesai'];
                     @$bobot_bcws = $_POST['bobot_bcws'];
                     @$bobot_bcwp = $_POST['bobot_bcwp'];
+                    @$status = $_POST['status'];
 
                     $q = mysql_query("UPDATE proyek_pekerjaan SET
                                         nama='$nama',
@@ -93,7 +95,8 @@
                                         tanggal_mulai='$tanggal_mulai',
                                         tanggal_selesai='$tanggal_selesai',
                                         bobot_bcws='$bobot_bcws',
-                                        bobot_bcwp='$bobot_bcwp'
+                                        bobot_bcwp='$bobot_bcwp',
+                                        status='$status'
                                         WHERE id='$id'");
 
 
@@ -333,56 +336,75 @@
         </div>
 
         <!-- Rincian Pekerjaan -->
-        <div class="row" id="rincian-pekerjaan">
-            <div class="col-md-12">
-                <h3>Struktur Rincian Kerja</h3>
-                <hr>
 
-                <?php if($_SESSION['status'] == 'DEVELOPER'): ?>
-                <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#pekerjaan">
-                    <span class="glyphicon glyphicon-plus"></span> Tambah Data Pekerjaan
-                </button>
-                <?php endif; ?>
+        <div>
+            <ul class="nav nav-tabs">
+                <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
+                <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="jadwal-pekerjaan">
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Durasi</th>
-<!--                        <th>Minggu</th>-->
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Selesai</th>
-<!--                        <th>Bobot BCWS</th>-->
-<!--                        <th>Bobot BCWP</th>-->
-                        <th>Aksi</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
+                <?php include("../komponen/kalender_pekerjaan.php"); ?>
+
+            </div>
+
+            <div class="tab-pane row" id="list-pekerjaan">
+                <div class="col-md-12">
+                    <h3>Struktur Rincian Kerja</h3>
+                    <hr>
+
+                    <?php if($_SESSION['status'] == 'MANAGER'): ?>
+                        <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#pekerjaan">
+                            <span class="glyphicon glyphicon-plus"></span> Tambah Data Pekerjaan
+                        </button>
+                    <?php endif; ?>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Durasi</th>
+                            <!--                        <th>Minggu</th>-->
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Bobot BCWS</th>
+                            <!--                        <th>Bobot BCWP</th>-->
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
                         $q_pekerjaan = mysql_query("SELECT * FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' ORDER BY tanggal_mulai, COALESCE(parent, id), parent IS NOT NULL");
                         while($d_pekerjaan = mysql_fetch_object($q_pekerjaan)):
-                    ?>
-                        <tr>
-                            <td class="<?php echo empty($d_pekerjaan->parent) ? 'info' : ''; ?>"><?php echo $d_pekerjaan->nama; ?></td>
-                            <td><?php echo $d_pekerjaan->have_child ? get_parent_durasi($d_pekerjaan->id) : durasi($d_pekerjaan->tanggal_mulai, $d_pekerjaan->tanggal_selesai); ?> Hari</td>
-<!--                            <td><pre>--><?php //// get_minggu_bcws($d_pekerjaan->id); ?><!--</pre></td>-->
-                            <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_mulai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_mulai); ?></td>
-                            <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_selesai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_selesai); ?></td>
-<!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?><!--</td>-->
-<!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?><!--</td>-->
-                            <td>
-                                <?php if($_SESSION['status'] == 'DEVELOPER'): ?>
-                                    <button class="btn btn-link btn-xs btn-edit-pekerjaan" data-toggle="modal" data-target="#edit-pekerjaan" data-id="<?php echo $d_pekerjaan->id; ?>">Edit</button>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php
+                            ?>
+                            <tr>
+                                <td class="<?php echo empty($d_pekerjaan->parent) ? 'info' : ''; ?>"><?php echo $d_pekerjaan->nama; ?></td>
+                                <td><?php echo $d_pekerjaan->have_child ? get_parent_durasi($d_pekerjaan->id) : durasi($d_pekerjaan->tanggal_mulai, $d_pekerjaan->tanggal_selesai); ?> Hari</td>
+                                <!--                            <td><pre>--><?php //// get_minggu_bcws($d_pekerjaan->id); ?><!--</pre></td>-->
+                                <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_mulai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_mulai); ?></td>
+                                <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_selesai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_selesai); ?></td>
+                                <td><?php echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?></td>
+                                <!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?><!--</td>-->
+                                <td><?php echo $d_pekerjaan->have_child ? "" : $d_pekerjaan->status ?></td>
+                                <td>
+                                    <?php if($_SESSION['status'] == 'MANAGER'): ?>
+                                        <button class="btn btn-link btn-xs btn-edit-pekerjaan" data-toggle="modal" data-target="#edit-pekerjaan" data-id="<?php echo $d_pekerjaan->id; ?>">Edit</button>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php
                         endwhile;
-                    ?>
-                    </tbody>
-                </table>
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
+
 
 
         <?php include "../komponen/evm.php"; ?>

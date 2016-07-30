@@ -41,7 +41,7 @@
 						<td><?php echo $data['email']; ?></td>
 						<td><?php echo $data['status']; ?></td>
 						<td>
-							<a href="#edit-user" data-toggle="modal" onclick="javascript:edituser(<?php echo $data['id_user'].", '".$data['username']."','".$data['password']."', '".$data['email']."', '".$data['status']."'"; ?>)">Edit</a>
+							<a href="#edit-user" data-toggle="modal" onclick="javascript:edituser(<?php echo "'".$data['nama']."',".$data['id_user'].", '".$data['username']."','".$data['password']."', '".$data['email']."', '".$data['status']."'"; ?>)">Edit</a>
 							|
 							<a href="deleteuser.php?id_user=<?php echo $data['id_user']; ?>" onclick="return confirm('Apakah Anda yakin?')">Hapus</a>
 						</td>

@@ -65,24 +65,25 @@ if(isset($_GET['id']))
                     <input type="date" name="tanggal_selesai" class="form-control datepicker" required="true" value="<?php echo $r->tanggal_selesai; ?>"/>
                 </div>
             </div>
-<!--            <div class="form-group">-->
-<!--                <label class="col-sm-2">Bobot BCWS</label>-->
-<!--                <div class="col-sm-3">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" name="bobot_bcws" class="form-control" value="--><?php //echo $r->bobot_bcws; ?><!--"/>-->
-<!--                        <span class="input-group-addon">%</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <label class="col-sm-2">Bobot BCWP</label>-->
-<!--                <div class="col-sm-3">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" name="bobot_bcwp" class="form-control" value="--><?php //echo $r->bobot_bcwp; ?><!--"/>-->
-<!--                        <span class="input-group-addon">%</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="form-group">
+                <label class="col-sm-2">Bobot BCWS</label>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <input type="text" name="bobot_bcws" class="form-control" value="<?php echo $r->bobot_bcws; ?>"/>
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Status</label>
+                <div class="col-sm-3">
+                    <select name="status" class="form-control">
+                        <option <?php echo $r->status == 'belum' ? 'selected="selected"' : ''; ?>>belum</option>
+                        <option <?php echo $r->status == 'sedang' ? 'selected="selected"' : ''; ?>>sedang</option>
+                        <option <?php echo $r->status == 'sudah' ? 'selected="selected"' : ''; ?>>sudah</option>
+                    </select>
+                </div>
+            </div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <button type="submit" name="edit_pekerjaan" class="btn btn-success">Simpan Data</button>
         </form>

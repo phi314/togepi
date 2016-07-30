@@ -2,6 +2,7 @@
 <div>
     <ul class="nav nav-tabs">
         <li><a href="#table-bcws" class="nav active" data-toggle="tab">BCWS</a> </li>
+        <?php if($_SESSION['status'] == "DEVELOPER"): ?>
         <li><a href="#table-bcwp" class="nav" data-toggle="tab">BCWP</a> </li>
         <li><a href="#table-acwp" class="nav" data-toggle="tab">ACWP</a></li>
         <li><a href="#table-sv" class="nav" data-toggle="tab">SV</a></li>
@@ -12,6 +13,7 @@
         <li><a href="#table-eac" class="nav" data-toggle="tab">EAC</a></li>
         <li><a href="#table-ets" class="nav" data-toggle="tab">ETS</a></li>
         <li><a href="#table-eas" class="nav" data-toggle="tab">EAS</a></li>
+        <?php endif; ?>
         <li><a href="#table-kesimpulan" class="nav" data-toggle="tab">Kesimpulan</a></li>
     </ul>
 

@@ -2,7 +2,7 @@
 	@$id_user   = $_POST["id_user"];
 	@$nama   = $_POST["nama"];
 	@$username 	= $_POST["username"];
-	@$password 	= $_POST["password"];
+//	@$password 	= $_POST["password"];
 	$password=md5($password);
 	@$email 	= $_POST["email"];
 	@$status   	= $_POST["status"];
@@ -28,12 +28,12 @@
 			}else{
 				$sql = mysql_query("UPDATE user SET username = '$username' WHERE id_user = '$id_user'");
 			}
-			if (!empty($password))
-			{
-				$sql = mysql_query("UPDATE user SET password = '$password' WHERE id_user = '$id_user'");
-			}else{
-				$sql = mysql_query("UPDATE user SET password = '$password' WHERE id_user = '$id_user'");
-			}
+//			if (!empty($password))
+//			{
+//				$sql = mysql_query("UPDATE user SET password = '$password' WHERE id_user = '$id_user'");
+//			}else{
+//				$sql = mysql_query("UPDATE user SET password = '$password' WHERE id_user = '$id_user'");
+//			}
 			if (!empty($email))
 			{
 				$sql = mysql_query("UPDATE user SET email = '$email' WHERE id_user = '$id_user'");

@@ -1,13 +1,15 @@
 <script type="text/javascript">
-function edituser(id_user, username,password, email, status)
+function edituser(nama, id_user, username,password, email, status)
 {
 	var id_userstr 		= id_user;
+	var nama		= nama;
 	var usernamestr		= username;
 	var passwordstr		= password;
 	var emailstr 		= email;
 	var statusstr 		= status;
 
 	document.fedituser.id_user.value 	= id_userstr;
+	document.fedituser.nama.value 	= nama;
 	document.fedituser.username.value 	= usernamestr;
 	document.fedituser.password.value 	= passwordstr;
 	document.fedituser.email.value 		= emailstr;
@@ -25,19 +27,24 @@ function edituser(id_user, username,password, email, status)
 
 				<form method="POST" name="fedituser" class="form-horizontal">
 					<input type="hidden" name="id_user" value="" />
-					
+                    <div class="form-group">
+                        <label class="col-sm-2">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nama" class="form-control" required="true"/>
+                        </div>
+                    </div>
 					<div class="form-group">
 						<label class="col-sm-2">Username</label>
 						<div class="col-sm-10">
 							<input type="text" name="username" class="form-control" required="true"/>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2">Password</label>
-						<div class="col-sm-10">
-							<input type="text" name="password" type="password" class="form-control" required="true"/>
-						</div>
-					</div>
+<!--					<div class="form-group">-->
+<!--						<label class="col-sm-2">Password</label>-->
+<!--						<div class="col-sm-10">-->
+<!--							<input type="text" name="password" type="password" class="form-control" required="true"/>-->
+<!--						</div>-->
+<!--					</div>-->
 					<div class="form-group">
 						<label class="col-sm-2">E-mail</label>
 						<div class="col-sm-10">
