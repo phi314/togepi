@@ -24,7 +24,7 @@ if(isset($_GET['id']))
         <h4 class="modal-title" id="myModalLabel">Form Input Rincian Kerja</h4>
     </div>
     <div class="modal-body">
-        <form method="POST" action="#rincian-pekerjaan" class="form-horizontal">
+        <form method="POST" action="#pekerjaan" class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-2">Nama Pekerjaan</label>
                 <div class="col-sm-10">

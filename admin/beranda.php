@@ -93,7 +93,7 @@
 <!--                            <ul><a href="?page=tingkat-kepentingan.php">Tingkat Kepentingan</a></ul>-->
 <!--                            <ul><a href="?page=datamitigasi.php">Mitigasi</a></ul>-->
 
-							<li><a href="?page=dataproyek.php">Lihat Progres</a></li>
+							<li><a href="?page=dataprogres.php">Lihat Progres</a></li>
 						
 						<?php } else if($data['status'] == "CEO" ){ ?>
 							<li><a href="?page=ldatauser.php">Lihat Data Pengguna</a></li>

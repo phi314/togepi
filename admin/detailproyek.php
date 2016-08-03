@@ -60,13 +60,13 @@
                     @$tanggal_selesai = $_POST['tanggal_selesai'];
                     @$bobot_bcws = $_POST['bobot_bcws'];
                     @$bobot_bcwp = $_POST['bobot_bcwp'];
-                    @$status = $_POST['status'];
+                    @$status = 'belum';
 
                     $q = mysql_query("SELECT nama FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' AND nama='$nama'");
                     if(mysql_num_rows($q) == 0)
                     {
                         mysql_query("INSERT INTO proyek_pekerjaan(id_proyek, nama, have_child, parent, tanggal_mulai, tanggal_selesai, bobot_bcws, status)
-                      VALUES('$id_proyek', '$nama', '$have_child', '$parent', '$tanggal_mulai', '$tanggal_selesai', '$bcws', '$status')");
+                      VALUES('$id_proyek', '$nama', '$have_child', '$parent', '$tanggal_mulai', '$tanggal_selesai', '$bobot_bcws', '$status')");
 
                         $alert = "Berhasil Tambah Pekerjaan";
                     }
@@ -337,7 +337,7 @@
 
         <!-- Rincian Pekerjaan -->
 
-        <div>
+        <div id="pekerjaan">
             <ul class="nav nav-tabs">
                 <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
@@ -356,7 +356,7 @@
                     <hr>
 
                     <?php if($_SESSION['status'] == 'MANAGER'): ?>
-                        <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#pekerjaan">
+                        <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#add-pekerjaan">
                             <span class="glyphicon glyphicon-plus"></span> Tambah Data Pekerjaan
                         </button>
                     <?php endif; ?>
@@ -399,6 +399,11 @@
                         endwhile;
                         ?>
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="8"><sub>*Jika memiliki sub maka data akan di hitung dari nilai subnya.</sub></td>
+                        </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -412,7 +417,7 @@
 
 
         <!-- Modal Input Rincian Kerja -->
-        <div class="modal fade" id="pekerjaan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="add-pekerjaan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -420,7 +425,7 @@
                         <h4 class="modal-title" id="myModalLabel">Form Input Rincian Kerja</h4>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="#rincian-pekerjaan" class="form-horizontal">
+                        <form method="POST" action="#pekerjaan" class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-2">Nama Pekerjaan</label>
                                 <div class="col-sm-10">
@@ -461,15 +466,15 @@
                                     <input type="date" name="tanggal_selesai" class="form-control datepicker" required="true"/>
                                 </div>
                             </div>
-<!--                            <div class="form-group">-->
-<!--                                <label class="col-sm-2">Bobot BCWS</label>-->
-<!--                                <div class="col-sm-3">-->
-<!--                                    <div class="input-group">-->
-<!--                                        <input type="text" name="bobot_bcws" class="form-control" />-->
-<!--                                        <span class="input-group-addon">%</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <div class="form-group">
+                                <label class="col-sm-2">Bobot BCWS</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <input type="text" name="bobot_bcws" class="form-control" />
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
 <!--                            <div class="form-group">-->
 <!--                                <label class="col-sm-2">Bobot BCWP</label>-->
 <!--                                <div class="col-sm-3">-->

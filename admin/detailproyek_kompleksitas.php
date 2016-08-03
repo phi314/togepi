@@ -164,7 +164,7 @@
                             ?>
                             <tr>
                                 <td><?php echo $d_gsc->nama_gsc; ?></td>
-                                <td><input type="text" name="nilai[]" data-id-proyek-gsc="<?php echo $d_gsc->id; ?>" value="<?php echo $d_gsc->nilai; ?>" class="form-control"></td>
+                                <td><input type="text" data-nilai="<?php echo $d_gsc->nilai; ?>" name="nilai[]" data-id-proyek-gsc="<?php echo $d_gsc->id; ?>" value="<?php echo $d_gsc->nilai; ?>" class="form-control"></td>
                             </tr>
                         <?php
                         endwhile;
@@ -219,6 +219,13 @@
                 var nilai = $(this).val();
                 var id_proyek_gsc = $(this).data('id-proyek-gsc');
                 var id_proyek = $('input[name=id_proyek]').val();
+
+                if(nilai >= 6)
+                {
+                    alert('Nilai tidak boleh lebih dari 5.');
+                    $(this).val($(this).data('nilai'));
+                    return false;
+                }
 
                 $.ajax({
                     url: base_url + "komponen/set_proyek_gsc_nilai.php",
