@@ -303,3 +303,11 @@
 
         return [$bobot, $cost];
     }
+
+    function division($a, $b)
+    {
+        if($b === 0)
+            return null;
+        else
+            return $a/$b;
+    }

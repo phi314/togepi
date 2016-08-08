@@ -338,7 +338,7 @@
                             $static_fp = 6;
 
                             // perkiraan waktu
-                            $pw = round($fp) / ($jumlah_developer * $static_fp);
+                            $pw = division(round($fp), ($jumlah_developer * $static_fp));
                             ?>
                             <b><?php echo round($pw); ?> Minggu</b>
                         </h4>
@@ -354,19 +354,19 @@
 
         <div id="pekerjaan">
             <ul class="nav nav-tabs">
-                <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
+                <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#sdm" class="nav active" data-toggle="tab">SDM</a></li>
             </ul>
         </div>
         <div class="tab-content">
-            <div class="tab-pane active" id="jadwal-pekerjaan">
+            <div class="tab-pane" id="jadwal-pekerjaan">
 
                 <?php include("../komponen/kalender_pekerjaan.php"); ?>
 
             </div>
 
-            <div class="tab-pane" id="list-pekerjaan">
+            <div class="tab-pane active" id="list-pekerjaan">
                 <h3>Struktur Rincian Kerja</h3>
                 <hr>
 
@@ -434,7 +434,7 @@
 
                     <?php
                         $array_stakeholder = [];
-                        $q_sdm_stakeholder = mysql_query("SELECT * FROM proyek_stakeholders WHERE id_proyek='$id_proyek'");
+                        $q_sdm_stakeholder = mysql_query("SELECT proyek_stakeholders.*, user.nama as user_nama FROM proyek_stakeholders JOIN user ON user.id_user=proyek_stakeholders.id_user WHERE id_proyek='$id_proyek'");
 
                         $i_developer = 1;
                     while($r_sdm_stakeholder = mysql_fetch_object($q_sdm_stakeholder)):
@@ -462,7 +462,7 @@
                             ];
 
                             ?>
-                        <td><?php echo strtoupper($tugas); ?></td>
+                        <td><?php echo $r_sdm_stakeholder->user_nama; ?></td>
                     <?php endwhile; ?>
                         <td colspan="2">Aksi</td>
                     </tr>
@@ -478,29 +478,27 @@
                             <?php
                             $q_pekerjaan_stakeholder = mysql_query("SELECT * FROM proyek_pekerjaan_stakeholder WHERE id_pekerjaan='$d_sdm->id'");
 
+                            /*
+                             * if empty stakeholder
+                             * insert into pekerjaan stakeholder
+                             */
                             if(mysql_num_rows($q_pekerjaan_stakeholder) == 0)
                             {
                                 foreach($array_stakeholder as $sdm_stakeholder)
                                 {
                                     if($sdm_stakeholder[1] == 'ceo')
-                                    {
                                         $raci = 'i';
-                                    }
                                     elseif($sdm_stakeholder[1] == 'pm')
-                                    {
                                         $raci = 'c';
-                                    }
                                     else
-                                    {
                                         $raci = 'r';
-                                    }
 
                                     mysql_query("INSERT INTO proyek_pekerjaan_stakeholder(id_pekerjaan, id_stakeholder, raci) VALUES ('$d_sdm->id', '$sdm_stakeholder[0]', '$raci')");
                                 }
                             }
 
                             while($r_pekerjaan_stakeholder = mysql_fetch_object($q_pekerjaan_stakeholder)):
-                                ?>
+                            ?>
                                 <td><?php echo strtoupper($r_pekerjaan_stakeholder->raci); ?></td>
                             <?php endwhile; ?>
                             <td>
@@ -643,7 +641,8 @@
                     url: base_url + 'komponen/modal/edit_proyek_pekerjaan_stakeholder.php',
                     type: 'get',
                     data: {
-                        id_pekerjaan: id
+                        id_pekerjaan: id,
+                        id_proyek: <?php echo $id_proyek; ?>
                     },
                     success: function(modal){
                         $('#edit-pekerjaan-stakeholder .modal-dialog').html(modal);
