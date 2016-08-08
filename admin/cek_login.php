@@ -34,10 +34,11 @@
 <?php
 			
 		}else{
+
 ?>
-	<div class="alert alert-warning warning1">
-		
-	</div>
+<!--	<div class="alert alert-warning warning1">-->
+<!--		-->
+<!--	</div>-->
 <?php
 		}
 	

@@ -204,10 +204,21 @@
                                 // perkiraan waktu
                                 $pw = round($fp) / ($jumlah_developer * $static_fp);
                                 ?>
-                                <b><?php echo round($pw); ?> Minggu</b>
+                                <b><span id="label-pw"><?php echo round($pw); ?></span> Minggu</b>
                             </h1>
                         </div>
-                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h1 class="text-center">
+                                Perkiraan Biaya<br>
+                                <div class="input-group">
+                                    <input type="text" placeholder="Tarif tenaga kerja" name="tarif_tenaga_kerja" id="tarif_tenaga_kerja" value="<?php echo $d->tarif_tenaga_kerja; ?>" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button" id="btn_tarif_tenaga_kerja">Simpan</button>
+                                    </span>
+                                </div>
+                                <b id="perkiraan-biaya">Rp. <?php echo format_rupiah($d->tarif_tenaga_kerja * round($pw)) ; ?></b>
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -261,6 +272,25 @@
                         }
                     })
                 }
+            });
+
+            $('#btn_tarif_tenaga_kerja').click(function(){
+                var tarif_tenaga_kerja = $('#tarif_tenaga_kerja').val();
+                var pw = $('#label-pw').text();
+
+                $.ajax({
+                    url: base_url + 'komponen/edit_tarif_tenaga_kerja.php',
+                    type: 'post',
+                    data: {
+                        id_proyek: <?php echo $id_proyek; ?>,
+                        tarif_tenaga_kerja: tarif_tenaga_kerja,
+                        pw: pw,
+                        edit_tarif_tenaga_kerja: true
+                    },
+                    success: function(data){
+                        $('#perkiraan-biaya').text('Rp. ' + data);
+                    }
+                });
             });
         </script>
 

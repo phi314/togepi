@@ -100,8 +100,7 @@
 							<li><a href="?page=ldataclient.php">Lihat Data Project Owner</a></li>
 							<li><a href="?page=ldataproyek.php">Lihat Data Proyek</a></li>
 							<li><a href="?page=datajadwal.php">Lihat Jadwal Kerja</a></li>
-							<li><a href="?page=dataproyek.php">Lihat Kompleksitas</a>
-							<li><a href="?page=dataproyek.php">Lihat Manajemen Resiko</a></li>
+							<li><a href="?page=dataresiko.php">Lihat Manajemen Resiko</a></li>
 							<li><a href="?page=dataprogres.php">Lihat Progres</a></li>
 							
 						<?php } else if($data['status'] == "DEVELOPER" ){ ?>
@@ -109,8 +108,7 @@
 							<li><a href="?page=ldataclient.php">Lihat Data Project Owner</a></li>
 							<li><a href="?page=ldataproyek.php">Lihat Data Proyek</a></li>
 							<li><a href="?page=datajadwal.php">Jadwal Kerja</a></li>
-							<li><a href="?page=dataproyek.php">Kompleksitas</a>
-							<li><a href="?page=dataproyek.php">Manajemen Resiko</a></li>
+							<li><a href="?page=dataresiko.php">Manajemen Resiko</a></li>
 							<li><a href="?page=dataprogres.php">Lihat Progres</a></li>
 						
 						<?php } ?>

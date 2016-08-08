@@ -76,6 +76,7 @@
                     }
                 }
 
+                // update pekerjaan
                 if(isset($_POST['edit_pekerjaan']))
                 {
                     @$id = $_POST['id'];
@@ -101,6 +102,20 @@
 
 
                     $alert = "Berhasil Edit Pekerjaan";
+                }
+
+                // edit pekerjaan stakeholder
+                if(isset($_POST['edit_pekerjaan_stakeholder']))
+                {
+                    @$id_pekerjaan = $_POST['id_pekerjaan'];
+                    @$raci = $_POST['raci'];
+
+                    foreach($raci as $key => $pekerjaan_stakeholder)
+                    {
+                        mysql_query("UPDATE proyek_pekerjaan_stakeholder SET raci='$pekerjaan_stakeholder' WHERE id='$key'");
+                    }
+
+                    $alert = "Berhasil update SDM";
                 }
 
                 if(!empty($alert))
@@ -341,6 +356,7 @@
             <ul class="nav nav-tabs">
                 <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
+                <li><a href="#sdm" class="nav active" data-toggle="tab">SDM</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -350,62 +366,154 @@
 
             </div>
 
-            <div class="tab-pane row" id="list-pekerjaan">
-                <div class="col-md-12">
-                    <h3>Struktur Rincian Kerja</h3>
-                    <hr>
+            <div class="tab-pane" id="list-pekerjaan">
+                <h3>Struktur Rincian Kerja</h3>
+                <hr>
 
-                    <?php if($_SESSION['status'] == 'MANAGER'): ?>
-                        <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#add-pekerjaan">
-                            <span class="glyphicon glyphicon-plus"></span> Tambah Data Pekerjaan
-                        </button>
-                    <?php endif; ?>
+                <?php if($_SESSION['status'] == 'MANAGER'): ?>
+                    <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#add-pekerjaan">
+                        <span class="glyphicon glyphicon-plus"></span> Tambah Data Pekerjaan
+                    </button>
+                <?php endif; ?>
 
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Durasi</th>
-                            <!--                        <th>Minggu</th>-->
-                            <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>
-                            <th>Bobot BCWS</th>
-                            <!--                        <th>Bobot BCWP</th>-->
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $q_pekerjaan = mysql_query("SELECT * FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' ORDER BY tanggal_mulai, COALESCE(parent, id), parent IS NOT NULL");
-                        while($d_pekerjaan = mysql_fetch_object($q_pekerjaan)):
-                            ?>
-                            <tr>
-                                <td class="<?php echo empty($d_pekerjaan->parent) ? 'info' : ''; ?>"><?php echo $d_pekerjaan->nama; ?></td>
-                                <td><?php echo $d_pekerjaan->have_child ? get_parent_durasi($d_pekerjaan->id) : durasi($d_pekerjaan->tanggal_mulai, $d_pekerjaan->tanggal_selesai); ?> Hari</td>
-                                <!--                            <td><pre>--><?php //// get_minggu_bcws($d_pekerjaan->id); ?><!--</pre></td>-->
-                                <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_mulai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_mulai); ?></td>
-                                <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_selesai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_selesai); ?></td>
-                                <td><?php echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?></td>
-                                <!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?><!--</td>-->
-                                <td><?php echo $d_pekerjaan->have_child ? "" : $d_pekerjaan->status ?></td>
-                                <td>
-                                    <?php if($_SESSION['status'] == 'MANAGER'): ?>
-                                        <button class="btn btn-link btn-xs btn-edit-pekerjaan" data-toggle="modal" data-target="#edit-pekerjaan" data-id="<?php echo $d_pekerjaan->id; ?>">Edit</button>
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
-                        <?php
-                        endwhile;
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Durasi</th>
+                        <!--                        <th>Minggu</th>-->
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Selesai</th>
+                        <th>Bobot BCWS</th>
+                        <!--                        <th>Bobot BCWP</th>-->
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $q_pekerjaan = mysql_query("SELECT * FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' ORDER BY tanggal_mulai, COALESCE(parent, id), parent IS NOT NULL");
+                    while($d_pekerjaan = mysql_fetch_object($q_pekerjaan)):
                         ?>
-                        </tbody>
-                        <tfoot>
                         <tr>
-                            <td colspan="8"><sub>*Jika memiliki sub maka data akan di hitung dari nilai subnya.</sub></td>
+                            <td class="<?php echo empty($d_pekerjaan->parent) ? 'info' : ''; ?>"><?php echo $d_pekerjaan->nama; ?></td>
+                            <td><?php echo $d_pekerjaan->have_child ? get_parent_durasi($d_pekerjaan->id) : durasi($d_pekerjaan->tanggal_mulai, $d_pekerjaan->tanggal_selesai); ?> Hari</td>
+                            <!--                            <td><pre>--><?php //// get_minggu_bcws($d_pekerjaan->id); ?><!--</pre></td>-->
+                            <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_mulai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_mulai); ?></td>
+                            <td><?php echo $d_pekerjaan->have_child ? tanggal_format_indonesia(get_parent_tanggal_selesai($d_pekerjaan->id)) : tanggal_format_indonesia($d_pekerjaan->tanggal_selesai); ?></td>
+                            <td><?php echo $d_pekerjaan->have_child ? get_parent_bcws($d_pekerjaan->id) : $d_pekerjaan->bobot_bcws ?></td>
+                            <!--                            <td>--><?php //echo $d_pekerjaan->have_child ? get_parent_bcwp($d_pekerjaan->id) : $d_pekerjaan->bobot_bcwp ?><!--</td>-->
+                            <td><?php echo $d_pekerjaan->have_child ? "" : $d_pekerjaan->status ?></td>
+                            <td>
+                                <?php if($_SESSION['status'] == 'MANAGER'): ?>
+                                    <button class="btn btn-link btn-xs btn-edit-pekerjaan" data-toggle="modal" data-target="#edit-pekerjaan" data-id="<?php echo $d_pekerjaan->id; ?>">Edit</button>
+                                <?php endif; ?>
+                            </td>
                         </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                    <?php
+                    endwhile;
+                    ?>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="8"><sub>*Jika memiliki sub maka data akan di hitung dari nilai subnya.</sub></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="tab-pane" id="sdm">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">Nama</th>
+                        <th rowspan="2" r>Durasi</th>
+                        <th>Stakeholder</th>
+                    </tr>
+                    <tr>
+
+                    <?php
+                        $array_stakeholder = [];
+                        $q_sdm_stakeholder = mysql_query("SELECT * FROM proyek_stakeholders WHERE id_proyek='$id_proyek'");
+
+                        $i_developer = 1;
+                    while($r_sdm_stakeholder = mysql_fetch_object($q_sdm_stakeholder)):
+
+                            switch($r_sdm_stakeholder->tugas)
+                            {
+                                case 'CEO':
+                                    $tugas = 'ceo';
+                                    break;
+                                case 'Project Manager':
+                                    $tugas = 'pm';
+                                    break;
+                                default:
+                                    $tugas = 'd';
+                            }
+
+                            if($tugas == 'd')
+                            {
+                                $tugas = 'd'.$i_developer++;
+                            }
+
+                            $array_stakeholder[] = [
+                                $r_sdm_stakeholder->id_user,
+                                $tugas
+                            ];
+
+                            ?>
+                        <td><?php echo strtoupper($tugas); ?></td>
+                    <?php endwhile; ?>
+                        <td colspan="2">Aksi</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $q_sdm = mysql_query("SELECT * FROM proyek_pekerjaan WHERE id_proyek='$id_proyek' ORDER BY tanggal_mulai, COALESCE(parent, id), parent IS NOT NULL");
+                    while($d_sdm = mysql_fetch_object($q_sdm)):
+                        ?>
+                        <tr>
+                            <td class="<?php echo empty($d_sdm->parent) ? 'info' : ''; ?>"><?php echo $d_sdm->nama; ?></td>
+                            <td><?php echo $d_sdm->have_child ? get_parent_durasi($d_sdm->id) : durasi($d_sdm->tanggal_mulai, $d_sdm->tanggal_selesai); ?> Hari</td>
+                            <?php
+                            $q_pekerjaan_stakeholder = mysql_query("SELECT * FROM proyek_pekerjaan_stakeholder WHERE id_pekerjaan='$d_sdm->id'");
+
+                            if(mysql_num_rows($q_pekerjaan_stakeholder) == 0)
+                            {
+                                foreach($array_stakeholder as $sdm_stakeholder)
+                                {
+                                    if($sdm_stakeholder[1] == 'ceo')
+                                    {
+                                        $raci = 'i';
+                                    }
+                                    elseif($sdm_stakeholder[1] == 'pm')
+                                    {
+                                        $raci = 'c';
+                                    }
+                                    else
+                                    {
+                                        $raci = 'r';
+                                    }
+
+                                    mysql_query("INSERT INTO proyek_pekerjaan_stakeholder(id_pekerjaan, id_stakeholder, raci) VALUES ('$d_sdm->id', '$sdm_stakeholder[0]', '$raci')");
+                                }
+                            }
+
+                            while($r_pekerjaan_stakeholder = mysql_fetch_object($q_pekerjaan_stakeholder)):
+                                ?>
+                                <td><?php echo strtoupper($r_pekerjaan_stakeholder->raci); ?></td>
+                            <?php endwhile; ?>
+                            <td>
+                                <?php if($_SESSION['status'] == 'MANAGER'): ?>
+                                    <button class="btn btn-link btn-xs btn-edit-pekerjaan-stakeholder" data-toggle="modal" data-target="#edit-pekerjaan-stakeholder" data-id="<?php echo $d_sdm->id; ?>">Edit</button>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php
+                    endwhile;
+                    ?>
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -413,6 +521,9 @@
 
 
         <?php include "../komponen/evm.php"; ?>
+
+        <h1>Data Resiko</h1>
+        <?php include "../komponen/management_resiko.php"; ?>
 
 
 
@@ -498,6 +609,13 @@
             </div>
         </div>
 
+        <!-- Modal Input Rincian Kerja -->
+        <div class="modal fade" id="edit-pekerjaan-stakeholder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+            </div>
+        </div>
+
         <script type="text/javascript">
 
             var total_anggaran = <?php echo $d->biaya; ?>;
@@ -514,6 +632,21 @@
                     },
                     success: function(modal){
                         $('#edit-pekerjaan .modal-dialog').html(modal);
+                    }
+                })
+            });
+
+            $('.btn-edit-pekerjaan-stakeholder').click(function(){
+                var id = $(this).data('id');
+
+                $.ajax({
+                    url: base_url + 'komponen/modal/edit_proyek_pekerjaan_stakeholder.php',
+                    type: 'get',
+                    data: {
+                        id_pekerjaan: id
+                    },
+                    success: function(modal){
+                        $('#edit-pekerjaan-stakeholder .modal-dialog').html(modal);
                     }
                 })
             });
