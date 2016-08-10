@@ -518,7 +518,11 @@
 
 
 
-        <?php include "../komponen/evm.php"; ?>
+        <?php
+            // show evm if is not manager
+            if($_SESSION['status'] != 'MANAGER')
+                include "../komponen/evm.php";
+        ?>
 
         <h1>Data Resiko</h1>
         <?php include "../komponen/management_resiko.php"; ?>

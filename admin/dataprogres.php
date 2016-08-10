@@ -4,63 +4,85 @@
             $d = FALSE;
             $search = '';
 
-            if(!empty($_GET['search']))
+            if(!empty($_GET['kode_proyek']))
             {
                 $alert = "";
-                $search = $_GET['search'];
+                $search = $_GET['kode_proyek'];
 
                 if(!empty($alert))
                 {
                     echo "<div class='alert alert-default'>$alert</div>";
                 }
 
-                $q = mysql_query("SELECT * FROM proyek JOIN client ON client.id_client=proyek.id_client WHERE kode_proyek LIKE '$search' LIMIT 1");
+                $q = mysql_query("SELECT * FROM proyek JOIN client ON client.id_client=proyek.id_client WHERE kode_proyek LIKE '$search' LIMIT 1") or die(mysql_error());;
                 if(mysql_num_rows($q) == 1)
                 {
                     $d = mysql_fetch_object($q);
                     $id_proyek = $d->id;
                 }
             }
-
-            function tipe_proyek($tipe)
-            {
-                $string = "";
-                switch($tipe)
-                {
-                    case "W":
-                        $string = "Proyek Website";
-                        break;
-                    case "A":
-                        $string = "Proyek Android";
-                        break;
-                    case "I":
-                        $string = "Proyek Ios";
-                        break;
-                    case "R":
-                        $string = "Proyek Robotik";
-                        break;
-
-                }
-
-                return $string;
-            }
 		?>
 
-        <h1>Progres</h1>
+        <div>
+            <h1>Progres</h1>
 
-        <form action="" method="get">
-            <div class="input-group">
-                <input type="text" placeholder="Masukan Kode Proyek" class="form-control" name="search" value="<?php echo $search; ?>">
-                <div class="input-group-btn">
-                    <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Cari</button>
-                </div>
+            <div class="table-responsive" id="table-proyek">
+                <table class="table datatable-simple">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kode Proyek</th>
+                        <th>Nama Proyek</th>
+                        <th>Nama Client</th>
+                        <th>Biaya (Rp.)</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Selesai</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+
+                    $Ssql="select p.*, c.id_client, c.nama_client
+							from proyek p
+							join client c
+							on p.id_client=c.id_client
+							order by p.created_at desc";
+                    $query=mysql_query($Ssql) or die(mysql_error());
+                    $no = 1;
+                    echo mysql_error();
+                    while ($data = mysql_fetch_assoc($query))
+                    {
+                        ?>
+                        <tr>
+                            <td><?php echo $no;?>.</td>
+                            <td><?php echo $data['kode_proyek']; ?></td>
+                            <td><?php echo $data['nama_proyek']; ?></td>
+                            <td><?php echo $data['nama_client']; ?></td>
+                            <td><?php echo format_rupiah($data['biaya']); ?></td>
+                            <td><?php echo tanggal_format_indonesia($data['tanggal_mulai']); ?></td>
+                            <td><?php echo tanggal_format_indonesia($data['tanggal_selesai']); ?></td>
+                            <td><?php echo $data['status']; ?></td>
+                            <td>
+                                <a href="beranda.php?page=dataprogres.php&kode_proyek=<?php echo $data['kode_proyek']; ?>">Detail</a>
+                            </td>
+                        </tr>
+                        <?php
+                        $no++;
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
-            <input type="hidden" name="page" value="dataprogres.php">
-        </form>
+        </div>
+
 
         <?php if($d != FALSE): ?>
 
-        <h2 class="text-center"><?php echo $d->nama_proyek; ?></h2>
+
+        <h3 class=""><?php echo $d->nama_proyek; ?></h3>
+
 
         <?php include "../komponen/evm.php"; ?>
 
