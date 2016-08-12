@@ -1,5 +1,6 @@
 <?php
 	@$id_user   = $_POST["id_user"];
+    @$nip       = $_POST["nip"];
 	@$nama   = $_POST["nama"];
 	@$username 	= $_POST["username"];
 //	@$password 	= $_POST["password"];
@@ -34,6 +35,12 @@
 //			}else{
 //				$sql = mysql_query("UPDATE user SET password = '$password' WHERE id_user = '$id_user'");
 //			}
+            if (!empty($nip))
+            {
+                $sql = mysql_query("UPDATE user SET nip = '$nip' WHERE id_user = '$id_user'");
+            }else{
+                $sql = mysql_query("UPDATE user SET nip = '$nip' WHERE id_user = '$id_user'");
+            }
 			if (!empty($email))
 			{
 				$sql = mysql_query("UPDATE user SET email = '$email' WHERE id_user = '$id_user'");

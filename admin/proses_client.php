@@ -7,7 +7,7 @@
 
 	if (isset($_POST["submit"]))
 	{
-		$sql = mysql_query("INSERT INTO client (nama_client,id_client, email, instansi) VALUES ('$nama_client','$id_client','$email','$instansi')");
+		$sql = mysql_query("INSERT INTO client (nama_client, email, instansi) VALUES ('$nama_client','$email','$instansi')");
 
 		if ($sql)
 		{

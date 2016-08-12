@@ -115,11 +115,21 @@
                                     }
                                 }
 
+                                $stakeholders = [];
+                                $stakeholder_query = mysql_query("SELECT proyek_pekerjaan_stakeholder.*, user.nama as user_nama, proyek_pekerjaan.tanggal_mulai FROM proyek_pekerjaan_stakeholder JOIN proyek_pekerjaan ON proyek_pekerjaan.tanggal_mulai='$d_proyek_date->tanggal_mulai' JOIN user ON user.id_user=proyek_pekerjaan_stakeholder.id_user WHERE proyek_pekerjaan_stakeholder.id_pekerjaan='$d_proyek_date->id'");
+                                while($d_stakeholder = mysql_fetch_object($stakeholder_query))
+                                {
+                                    if($d_stakeholder->raci == 'r')
+                                    {
+                                        $stakeholders[] = $d_stakeholder->user_nama;
+                                    }
+                                }
 
+                                $stakeholders = array_unique($stakeholders);
                             ?>
 
 
-                        " data-id="<?php echo $progres != "" ? $d_proyek_date->id : ""; ?>" title="<?php echo tanggal_format_indonesia($calendar_date).' '.$d_proyek_date->nama; ?>" id="pekerjaan-<?php echo $progres; ?>" style="">
+                        " data-id="<?php echo $progres != "" ? $d_proyek_date->id : ""; ?>" title="<?php echo "(".tanggal_format_indonesia($calendar_date).') '.$d_proyek_date->nama.' &#13 Stakeholders: &#13'.implode("&#13", $stakeholders); ?>" id="pekerjaan-<?php echo $progres; ?>" style="">
 
                         </td>
 

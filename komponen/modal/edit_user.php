@@ -1,19 +1,21 @@
 <script type="text/javascript">
-function edituser(nama, id_user, username,password, email, status)
+function edituser(nip, nama, id_user, username,password, email, status)
 {
 	var id_userstr 		= id_user;
-	var nama		= nama;
+	var nip		        = nip;
+	var nama		    = nama;
 	var usernamestr		= username;
 	var passwordstr		= password;
 	var emailstr 		= email;
 	var statusstr 		= status;
 
 	document.fedituser.id_user.value 	= id_userstr;
+	document.fedituser.nip.value 	= nip;
 	document.fedituser.nama.value 	= nama;
 	document.fedituser.username.value 	= usernamestr;
-	document.fedituser.password.value 	= passwordstr;
 	document.fedituser.email.value 		= emailstr;
 	document.fedituser.status.value 	= statusstr;
+
 }
 </script>
 <div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -27,6 +29,12 @@ function edituser(nama, id_user, username,password, email, status)
 
 				<form method="POST" name="fedituser" class="form-horizontal">
 					<input type="hidden" name="id_user" value="" />
+                    <div class="form-group">
+                        <label class="col-sm-2">NIP</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nip" class="form-control" required="true"/>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2">Nama</label>
                         <div class="col-sm-10">
@@ -57,9 +65,9 @@ function edituser(nama, id_user, username,password, email, status)
 							<!--<input type="text" name="status" class="form-control" required="true"/>-->
 							<select name="status" class="form-control" required="true">
 								<!--<option selected="" disabled="">Pilih Status Username</option>-->
-								<option>MANAGER</option>
-								<option>CEO</option>
-								<option>DEVELOPER</option>
+								<option value="MANAGER">MANAGER</option>
+								<option value="CEO">CEO</option>
+								<option value="DEVELOPER">DEVELOPER</option>
 							</select>
 						</div>
 					</div>

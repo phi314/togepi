@@ -86,7 +86,6 @@
                     @$tanggal_mulai = $_POST['tanggal_mulai'];
                     @$tanggal_selesai = $_POST['tanggal_selesai'];
                     @$bobot_bcws = $_POST['bobot_bcws'];
-                    @$bobot_bcwp = $_POST['bobot_bcwp'];
                     @$status = $_POST['status'];
 
                     $q = mysql_query("UPDATE proyek_pekerjaan SET
@@ -96,7 +95,6 @@
                                         tanggal_mulai='$tanggal_mulai',
                                         tanggal_selesai='$tanggal_selesai',
                                         bobot_bcws='$bobot_bcws',
-                                        bobot_bcwp='$bobot_bcwp',
                                         status='$status'
                                         WHERE id='$id'");
 
@@ -491,7 +489,7 @@
                                     elseif($sdm_stakeholder[1] == 'pm')
                                         $raci = 'c';
                                     else
-                                        $raci = 'r';
+                                        $raci = 'i';
 
                                     mysql_query("INSERT INTO proyek_pekerjaan_stakeholder(id_pekerjaan, id_stakeholder, raci) VALUES ('$d_sdm->id', '$sdm_stakeholder[0]', '$raci')");
                                 }
