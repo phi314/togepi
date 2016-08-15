@@ -43,6 +43,8 @@
         <!-- Datatables -->
 	    <link href="../assets/css/datatable.css" rel="stylesheet">
 
+        <link href="../css/fullcalendar/fullcalendar.css" rel="stylesheet">
+
 	    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 	    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 	    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
@@ -193,7 +195,7 @@
 
 
         <script type="text/javascript">
-            var base_url = "http://localhost/nusantec/";
+            var base_url = "http://localhost/nusantech/";
 
             $('.datepicker').datepicker({
                 format: 'yyyy-mm-dd'

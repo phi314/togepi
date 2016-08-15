@@ -109,6 +109,13 @@
 
         return $string;
     }
+
+
+    if(!empty($alert))
+    {
+        echo "<div class='alert alert-default'>$alert</div>";
+    }
+
     ?>
 
     <h1>Data Jadwal</h1>
@@ -138,7 +145,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="jadwal-pekerjaan">
 
-                <?php include("../komponen/kalender_pekerjaan.php"); ?>
+                <?php include("../komponen/kalender_pekerjaan_v2.php"); ?>
 
             </div>
 

@@ -81,6 +81,7 @@
                 <td nowrap><?php echo $d_proyek_date->nama; ?></td>
                 <?php
                 foreach($bulan as $key_bulan => $bln):
+
                     for($i = 1; $i <= $bln['days']; $i++):
                         $calendar_date = $bln['tahun'].'-'.$key_bulan.'-'.$i;
 
@@ -167,7 +168,7 @@
             success: function(modal){
                 $('#edit-bcwp .modal-dialog').html(modal);
             }
-        })
+        });
     });
 
 </script>

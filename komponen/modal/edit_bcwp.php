@@ -30,7 +30,7 @@ if(isset($_GET['id']))
                 <label class="col-sm-2">Bobot BCWP</label>
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <input type="text" name="bobot_bcws" class="form-control" value="<?php echo $r->bobot_bcws; ?>"/>
+                        <input type="text" name="bobot_bcwp" class="form-control" value="<?php echo $r->bobot_bcwp; ?>"/>
                         <span class="input-group-addon">%</span>
                     </div>
                 </div>

@@ -103,3 +103,18 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.fc-event-container .bg-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.fc-event-container .bg-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.fc-event-container .bg-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}

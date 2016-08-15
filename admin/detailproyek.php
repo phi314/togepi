@@ -350,20 +350,17 @@
 
         <!-- Rincian Pekerjaan -->
 
+
+        <?php include("../komponen/kalender_pekerjaan_v2.php"); ?>
+
+
         <div id="pekerjaan">
             <ul class="nav nav-tabs">
                 <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
-                <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#sdm" class="nav active" data-toggle="tab">SDM</a></li>
             </ul>
         </div>
         <div class="tab-content">
-            <div class="tab-pane" id="jadwal-pekerjaan">
-
-                <?php include("../komponen/kalender_pekerjaan.php"); ?>
-
-            </div>
-
             <div class="tab-pane active" id="list-pekerjaan">
                 <h3>Struktur Rincian Kerja</h3>
                 <hr>
