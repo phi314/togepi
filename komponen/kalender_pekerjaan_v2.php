@@ -22,6 +22,7 @@
 </div>
 
 <script src="../js/moment.min.js"></script>
+<script src="../js/fullcalendar/lang/id.js"></script>
 <script src="../js/fullcalendar/fullcalendar.min.js"></script>
 <script type="text/javascript">
     if($("#jadwal-pekerjaan").length > 0){
@@ -50,6 +51,7 @@
         prepare_external_list();
 
         var calendar = $('#jadwal-pekerjaan').fullCalendar({
+            lang: 'id',
             header: {
                 left: 'prev,next today',
                 center: 'title',
