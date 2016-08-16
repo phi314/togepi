@@ -351,7 +351,7 @@
         <!-- Rincian Pekerjaan -->
 
 
-        <?php include("../komponen/kalender_pekerjaan_v2.php"); ?>
+        <a href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>" class="btn btn-success">Kalender Pekerjaan</a>
 
 
         <div id="pekerjaan">
@@ -471,7 +471,7 @@
                             <td class="<?php echo empty($d_sdm->parent) ? 'info' : ''; ?>"><?php echo $d_sdm->nama; ?></td>
                             <td><?php echo $d_sdm->have_child ? get_parent_durasi($d_sdm->id) : durasi($d_sdm->tanggal_mulai, $d_sdm->tanggal_selesai); ?> Hari</td>
                             <?php
-                            $q_pekerjaan_stakeholder = mysql_query("SELECT * FROM proyek_pekerjaan_stakeholder WHERE id_pekerjaan='$d_sdm->id'");
+                            $q_pekerjaan_stakeholder = mysql_query("SELECT * FROM proyek_pekerjaan_stakeholder WHERE id_pekerjaan='$d_sdm->id' ");
 
                             /*
                              * if empty stakeholder

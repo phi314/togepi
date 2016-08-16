@@ -136,20 +136,16 @@
 
         <!-- Rincian Pekerjaan -->
 
+        <a href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>" class="btn btn-success">Kalender Pekerjaan</a>
+
+
         <div>
             <ul class="nav nav-tabs">
-                <li><a href="#jadwal-pekerjaan" class="nav active" data-toggle="tab">Jadwal Kerja</a></li>
                 <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
             </ul>
         </div>
         <div class="tab-content">
-            <div class="tab-pane active" id="jadwal-pekerjaan">
-
-                <?php include("../komponen/kalender_pekerjaan_v2.php"); ?>
-
-            </div>
-
-            <div class="tab-pane row" id="list-pekerjaan">
+            <div class="tab-pane row active" id="list-pekerjaan">
                 <div class="col-md-12">
                     <h3>Struktur Rincian Kerja</h3>
                     <hr>

@@ -6,6 +6,7 @@
  * Time: 12:00 AM
  */
 
+$site_url = "http://localhost/nusantech/";
 
     function total_nilai_cfp($id_proyek)
     {

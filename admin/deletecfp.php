@@ -1,5 +1,6 @@
 <?php
 	require "../config/koneksi.php";
+    require "../komponen/library.php";
 
 	$id_kompleksitas = $_GET['id_kompleksitas'];
 
@@ -7,6 +8,6 @@
 
 	if ($sql) 
 	{
-		header("location: http://localhost/nusantec/admin/beranda.php?page=datacfp.php");
+        header("location:{$site_url}admin/beranda.php?page=datacfp.php");
 	}
 ?>

@@ -10,6 +10,7 @@
 		header("location: http://localhost/nusantec/admin/beranda.php?page=dataproyek.php");
 	}*/
 	require "../config/koneksi.php";
+require "../komponen/library.php";
 
 	$id_proyek = $_GET['id_proyek'];
 
@@ -21,6 +22,6 @@
 
 	if ($sql) 
 	{
-		header("location: http://localhost/nusantec/admin/beranda.php?page=dataproyek.php");
+		header("location:{$site_url}admin/beranda.php?page=dataproyek.php");
 	}
 ?>

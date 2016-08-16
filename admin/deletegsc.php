@@ -1,5 +1,6 @@
 <?php
 	require "../config/koneksi.php";
+    require "../komponen/library.php";
 
 	$id_gsc = $_GET['id_gsc'];
 
@@ -7,6 +8,6 @@
 
 	if ($sql) 
 	{
-		header("location: http://localhost/nusantec/admin/beranda.php?page=datagsc.php");
+        header("location:{$site_url}admin/beranda.php?page=datagsc.php");
 	}
 ?>

@@ -74,7 +74,7 @@
 			<div class="row">
 				<!-- start -->
 
-				<div class="col-sm-3 col-md-2 sidebar">
+				<div class="col-sm-3 col-md-2 sidebar" id="sidebar">
 					<!-- start -->
 
 					<ul class="nav nav-sidebar">
@@ -115,13 +115,14 @@
 						
 						<?php } ?>
 							<li><a href="logout.php">Keluar</a></li>
+							<li></li>
 			        </ul>
 
 					<!-- end -->
 				</div>
 
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <div class="alert alert-success">
+                    <div class="alert alert-success ">
                         <h5 class="page-header">Selamat Datang, <?php echo $data['nama'];?></h5>
                     </div>
 					<?php
@@ -209,6 +210,7 @@
                     "sEmptyTable": "Tidak Ada Data Tersedia"
                 }
             });
+
         </script>
 	</body>
 </html>

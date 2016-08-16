@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-	</head>
-	<body>
-		<!-- start body -->
 
+        <?php if(isset($_GET['message'])) : ?>
+            <div class="alert alert-info">
+                <?php echo $_GET['message']; ?>
+            </div>
+        <?php endif; ?>
 		<button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#myModal">
 			<span class="glyphicon glyphicon-plus"></span> Tambah Data
 		</button>
@@ -59,6 +56,3 @@
 			</table>
 		</div>
 
-		<!-- end body -->
-	</body>
-</html>

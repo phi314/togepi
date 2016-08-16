@@ -20,20 +20,19 @@ if(isset($_GET['id']))
     $interval = new DateInterval('P1W7D');
     $daterange = new DatePeriod($tanggal_mulai_proyek, $interval, $tanggal_selesai_proyek);
 
-    $bulan = [];
+    $array_bulan = [];
 
     foreach($daterange as $key => $date)
     {
-        $bulan[$date->format('m')] = [
+        $array_bulan[$date->format('m')] = [
             'tahun' => $date->format('Y')
         ];
     }
 
-    foreach($bulan as $key_bulan => $num_month)
-    {
-        $jumlah_tanggal = cal_days_in_month(CAL_GREGORIAN, $key_bulan, $bulan[$key_bulan]['tahun']);
-        $bulan[$key_bulan]['days'] = $jumlah_tanggal;
-    }
+    @$bulan = $_GET['bulan'];
+    @$tahun = $_GET['tahun'];
+    @$bulan_days = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+
 }
 
 ?>
@@ -46,17 +45,32 @@ if(isset($_GET['id']))
 
 </style>
 
-<h1>Jadwal Pekerjaan</h1>
+<h1>Jadwal Pekerjaan <?php echo getBulan($bulan).' '.$tahun; ?></h1>
 <?php
 
-foreach($bulan as $key_bulan => $bln)
+foreach($array_bulan as $key_bulan => $bln)
 {
     ?>
-    <a href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>&bulan=<?php echo $key_bulan; ?>"><?php echo getBulan($key_bulan); ?></a>
+    <a class="btn btn-info" href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>&bulan=<?php echo $key_bulan; ?>&tahun=<?php echo $bln['tahun']; ?>"><?php echo getBulan($key_bulan); ?></a>
 <?php
 }
 
 ?>
+<br>
+<br>
+<br>
+
+    <?php
+    if(!(isset($_GET['bulan'])) && !(isset($_GET['tahun']))):
+    ?>
+
+        <p class="alert alert-danger">
+            Silahkan pilih bulan
+        </p>
+    <?php
+    endif;
+    ?>
+
 
 <div class="table-responsive" id="jadwal-pekerjaan">
     <table class="table table-bordered table-responsive small">
@@ -67,15 +81,12 @@ foreach($bulan as $key_bulan => $bln)
         </tr>
         <tr>
             <?php
-            foreach($bulan as $key_bulan => $bln):
-                for($i = 1; $i <= $bln['days']; $i++):
+                for($i = 1; $i <= $bulan_days; $i++):
                     ?>
                     <td><?php echo $i; ?></td>
 
                 <?php
                 endfor;
-            endforeach;
-
             ?>
         </tr>
         </thead>
@@ -87,10 +98,8 @@ foreach($bulan as $key_bulan => $bln)
             <tr>
                 <td nowrap ><?php echo $d_proyek_date->nama; ?></td>
                 <?php
-                foreach($bulan as $key_bulan => $bln):
-
-                    for($i = 1; $i <= $bln['days']; $i++):
-                        $calendar_date = $bln['tahun'].'-'.$key_bulan.'-'.$i;
+                    for($i = 1; $i <= $bulan_days; $i++):
+                        $calendar_date = $tahun.'-'.$bulan.'-'.$i;
 
                         $tanggal_mulai_date = strtotime($d_proyek_date->tanggal_mulai);
                         $tanggal_selesai_date = strtotime($d_proyek_date->tanggal_selesai);
@@ -143,8 +152,6 @@ foreach($bulan as $key_bulan => $bln)
 
                     <?php
                     endfor;
-                endforeach;
-
                 ?>
             </tr>
         <?php endwhile; ?>
