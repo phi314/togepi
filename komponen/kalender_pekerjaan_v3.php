@@ -33,6 +33,20 @@ if(isset($_GET['id']))
     @$tahun = $_GET['tahun'];
     @$bulan_days = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
 
+    if(isset($_POST['edit_bcwp']))
+    {
+        $id_pekerjaan = $_POST['id'];
+        $bobot_bcwp = $_POST['bobot_bcwp'];
+        $status = $_POST['status'];
+
+
+        var_dump($_POST);
+        $q = mysql_query("UPDATE proyek_pekerjaan
+        SET
+        bobot_bcwp = '$bobot_bcwp',
+        status = '$status'
+        WHERE id='$id_pekerjaan'");
+    }
 }
 
 ?>
