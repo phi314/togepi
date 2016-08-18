@@ -26,27 +26,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kalender_pekerjaan_v3.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/komponen/kalender_pekerjaan_v3.php">
+      <file leaf-file-name="dataclient.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/dataclient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="8" selection-start="846" selection-end="846" vertical-scroll-proportion="0.2214533" vertical-offset="178" max-vertical-offset="3654">
+            <state line="14" column="35" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1152">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="proses_client.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/proses_client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="486">
               <folding>
-                <marker date="1471451191011" expanded="true" signature="177:227" placeholder="SELECT * FRO..proyek..." />
-                <marker date="1471451191011" expanded="true" signature="314:428" placeholder="SELECT min(t..proyek_pekerjaan..." />
-                <marker date="1471451191011" expanded="true" signature="1357:1488" placeholder="UPDATE proye..." />
-                <marker date="1471451191011" expanded="true" signature="2690:2829" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-                <marker date="1471451191011" expanded="true" signature="4767:5114" placeholder="SELECT proye..proyek_pekerjaan_stakeholder..." />
+                <marker date="1471512484769" expanded="true" signature="211:305" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_bcwp.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/komponen/modal/edit_bcwp.php">
+      <file leaf-file-name="proses_user.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/proses_user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="114" selection-start="1113" selection-end="1113" vertical-scroll-proportion="-4.740741" vertical-offset="358" max-vertical-offset="936">
+            <state line="15" column="43" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="522">
               <folding>
-                <marker date="1471281158939" expanded="true" signature="270:315" placeholder="SELECT * FRO..proyek_pekerjaan..." />
+                <marker date="1471512566537" expanded="true" signature="294:337" placeholder="SELECT * FRO..user..." />
+                <marker date="1471512566537" expanded="true" signature="558:693" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="proses_updateclient.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/proses_updateclient.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="2" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="846">
+              <folding>
+                <marker date="1471512441549" expanded="true" signature="176:196" placeholder="SELECT * FRO..client..." />
+                <marker date="1471512441549" expanded="true" signature="383:460" placeholder="UPDATE clien..." />
+                <marker date="1471512441549" expanded="true" signature="498:575" placeholder="UPDATE clien..." />
+                <marker date="1471512441549" expanded="true" signature="636:701" placeholder="UPDATE clien..." />
+                <marker date="1471512441549" expanded="true" signature="739:804" placeholder="UPDATE clien..." />
+                <marker date="1471512441549" expanded="true" signature="868:939" placeholder="UPDATE clien..." />
+                <marker date="1471512441549" expanded="true" signature="977:1048" placeholder="UPDATE clien..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deletejadwal.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/deletejadwal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="36" selection-start="225" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="306">
+              <folding>
+                <marker date="1471364014572" expanded="true" signature="132:181" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -62,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/komponen/modal/input_cfp.php" />
         <option value="$PROJECT_DIR$/komponen/modal/input_proyek.php" />
         <option value="$PROJECT_DIR$/admin/ldataproyek.php" />
         <option value="$PROJECT_DIR$/komponen/delete_proyek_cfp.php" />
@@ -87,7 +120,6 @@
         <option value="$PROJECT_DIR$/komponen/evm.php" />
         <option value="$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan_stakeholder.php" />
         <option value="$PROJECT_DIR$/admin/dataprogres.php" />
-        <option value="$PROJECT_DIR$/admin/proses_client.php" />
         <option value="$PROJECT_DIR$/komponen/modal/input_user.php" />
         <option value="$PROJECT_DIR$/komponen/modal/edit_user.php" />
         <option value="$PROJECT_DIR$/admin/proses_updateuser.php" />
@@ -110,9 +142,11 @@
         <option value="$PROJECT_DIR$/admin/deleterisiko.php" />
         <option value="$PROJECT_DIR$/admin/deleteuser.php" />
         <option value="$PROJECT_DIR$/komponen/library.php" />
-        <option value="$PROJECT_DIR$/admin/proses_user.php" />
         <option value="$PROJECT_DIR$/admin/detailproyek.php" />
         <option value="$PROJECT_DIR$/komponen/kalender_pekerjaan_v3.php" />
+        <option value="$PROJECT_DIR$/admin/proses_updateclient.php" />
+        <option value="$PROJECT_DIR$/admin/proses_client.php" />
+        <option value="$PROJECT_DIR$/admin/proses_user.php" />
       </list>
     </option>
   </component>
@@ -274,7 +308,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39512962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40219954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -326,11 +360,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="54" selection-start="2507" selection-end="2507" vertical-scroll-proportion="-5.851852" vertical-offset="1048" max-vertical-offset="1656" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/detailproyek_kompleksitas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="286" column="30" selection-start="13537" selection-end="13539" vertical-scroll-proportion="0.5017301" vertical-offset="4858" max-vertical-offset="5436" />
@@ -376,16 +405,6 @@
         <state line="68" column="121" selection-start="3147" selection-end="3147" vertical-scroll-proportion="2.1176472" vertical-offset="0" max-vertical-offset="1458" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/dataprogres.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="30" selection-start="3017" selection-end="3017" vertical-scroll-proportion="0.0" vertical-offset="1494" max-vertical-offset="3240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/proses_client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="100" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="540" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/komponen/modal/input_user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="51" selection-start="634" selection-end="634" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1134" />
@@ -394,11 +413,6 @@
     <entry file="file://$PROJECT_DIR$/komponen/modal/edit_user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="1" selection-start="569" selection-end="569" vertical-scroll-proportion="2.0" vertical-offset="378" max-vertical-offset="1530" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/dataclient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="174" selection-end="340" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="1152" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/dataresiko.php">
@@ -438,9 +452,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/fullcalendar/fullcalendar.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="15" selection-start="18" selection-end="19" vertical-scroll-proportion="0.03272727" vertical-offset="0" max-vertical-offset="550">
-          <folding />
-        </state>
+        <state line="1" column="15" selection-start="18" selection-end="19" vertical-scroll-proportion="0.03272727" vertical-offset="0" max-vertical-offset="550" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/modal/edit_proyek_pekerjaan_stakeholder.php">
@@ -508,11 +520,6 @@
         <state line="10" column="36" selection-start="226" selection-end="226" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="324" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/deletejadwal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="36" selection-start="236" selection-end="236" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="306" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/deleteproyek.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="8" selection-start="784" selection-end="812" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="576" />
@@ -543,94 +550,94 @@
         <state line="11" column="33" selection-start="385" selection-end="385" vertical-scroll-proportion="-6.0" vertical-offset="36" max-vertical-offset="1152" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/proses_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="83" selection-start="758" selection-end="758" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="522" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/datakalenderpekerjaan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="66" selection-start="3033" selection-end="3033" vertical-scroll-proportion="-22.0" vertical-offset="972" max-vertical-offset="2376">
-          <folding>
-            <element signature="e#6#99#0" expanded="true" />
-            <marker date="1471362475673" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..user..." />
-          </folding>
-        </state>
+        <state line="87" column="66" selection-start="3033" selection-end="3033" vertical-scroll-proportion="-22.0" vertical-offset="972" max-vertical-offset="2376" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/add_bobot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="30" selection-start="299" selection-end="299" vertical-scroll-proportion="9.518518" vertical-offset="455" max-vertical-offset="1008">
-          <folding>
-            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_evm..." />
-            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="UPDATE proye..." />
-            <marker date="1469565338101" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_evm..." />
-          </folding>
-        </state>
+        <state line="16" column="30" selection-start="299" selection-end="299" vertical-scroll-proportion="9.518518" vertical-offset="455" max-vertical-offset="1008" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/kalender_pekerjaan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="67" selection-start="1495" selection-end="1495" vertical-scroll-proportion="63.333332" vertical-offset="2592" max-vertical-offset="3276">
-          <folding>
-            <marker date="1471361377625" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1471361377625" expanded="true" signature="-1:-1" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1471361377625" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1471361377625" expanded="true" signature="-1:-1" placeholder="SELECT proye..proyek_pekerjaan_stakeholder..." />
-          </folding>
-        </state>
+        <state line="54" column="67" selection-start="1495" selection-end="1495" vertical-scroll-proportion="63.333332" vertical-offset="2592" max-vertical-offset="3276" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/detailproyek.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="473" column="143" selection-start="22434" selection-end="22434" vertical-scroll-proportion="-189.33333" vertical-offset="3402" max-vertical-offset="12978">
-          <folding>
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT id_us..proyek_stakeholders..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="UPDATE proye..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT nama ..proyek_pekerjaan..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="UPDATE proye..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="UPDATE proye..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..user..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_stakeholders..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT proye..proyek_stakeholders..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..proyek_pekerjaan_stakeholder..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1471364705412" expanded="true" signature="-1:-1" placeholder="SELECT id, n..proyek_pekerjaan..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/kalender_pekerjaan_v2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="501" selection-end="501" vertical-scroll-proportion="30.592592" vertical-offset="1258" max-vertical-offset="1836">
-          <folding />
-        </state>
+        <state line="24" column="43" selection-start="501" selection-end="501" vertical-scroll-proportion="30.592592" vertical-offset="1258" max-vertical-offset="1836" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/modal/edit_bcwp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="114" selection-start="1113" selection-end="1113" vertical-scroll-proportion="-4.740741" vertical-offset="358" max-vertical-offset="936">
-          <folding>
-            <marker date="1471281158939" expanded="true" signature="270:315" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-          </folding>
-        </state>
+        <state line="32" column="114" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="1026" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/komponen/kalender_pekerjaan_v3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="8" selection-start="846" selection-end="846" vertical-scroll-proportion="0.2214533" vertical-offset="178" max-vertical-offset="3654">
+        <state line="22" column="8" selection-start="846" selection-end="846" vertical-scroll-proportion="3.3333333" vertical-offset="396" max-vertical-offset="3654" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/dataprogres.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="30" selection-start="3017" selection-end="3017" vertical-scroll-proportion="-44.0" vertical-offset="306" max-vertical-offset="3240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/deletejadwal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="36" selection-start="225" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="306">
           <folding>
-            <marker date="1471451191011" expanded="true" signature="177:227" placeholder="SELECT * FRO..proyek..." />
-            <marker date="1471451191011" expanded="true" signature="314:428" placeholder="SELECT min(t..proyek_pekerjaan..." />
-            <marker date="1471451191011" expanded="true" signature="1357:1488" placeholder="UPDATE proye..." />
-            <marker date="1471451191011" expanded="true" signature="2690:2829" placeholder="SELECT * FRO..proyek_pekerjaan..." />
-            <marker date="1471451191011" expanded="true" signature="4767:5114" placeholder="SELECT proye..proyek_pekerjaan_stakeholder..." />
+            <marker date="1471364014572" expanded="true" signature="132:181" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/dataclient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="35" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1152">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/proses_client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="486">
+          <folding>
+            <marker date="1471512484769" expanded="true" signature="211:305" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/proses_updateclient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="2" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="846">
+          <folding>
+            <marker date="1471512441549" expanded="true" signature="176:196" placeholder="SELECT * FRO..client..." />
+            <marker date="1471512441549" expanded="true" signature="383:460" placeholder="UPDATE clien..." />
+            <marker date="1471512441549" expanded="true" signature="498:575" placeholder="UPDATE clien..." />
+            <marker date="1471512441549" expanded="true" signature="636:701" placeholder="UPDATE clien..." />
+            <marker date="1471512441549" expanded="true" signature="739:804" placeholder="UPDATE clien..." />
+            <marker date="1471512441549" expanded="true" signature="868:939" placeholder="UPDATE clien..." />
+            <marker date="1471512441549" expanded="true" signature="977:1048" placeholder="UPDATE clien..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/proses_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="43" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="522">
+          <folding>
+            <marker date="1471512566537" expanded="true" signature="294:337" placeholder="SELECT * FRO..user..." />
+            <marker date="1471512566537" expanded="true" signature="558:693" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

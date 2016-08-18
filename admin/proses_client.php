@@ -15,9 +15,6 @@
 	<div class="alert alert-success">
 		<?php echo $nama_client; ?> berhasil disimpan. Terima kasih!
 	</div>
-	<script type="text/javascript">
-		setTimeout('location.href="http://localhost/nusantec/admin/beranda.php?page=dataclient.php"', 3000);
-	</script>
 <?php
 		}
 	}

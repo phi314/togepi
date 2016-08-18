@@ -36,9 +36,6 @@
 	<div class="alert alert-success">
 		Data user berhasil diganti. Terima kasih!
 	</div>
-	<script type="text/javascript">
-		setTimeout('location.href="http://localhost/nusantec/admin/beranda.php?page=dataclient.php"', 3000);
-	</script>
 <?php
 		}
 	}
