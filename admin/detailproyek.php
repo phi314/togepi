@@ -156,123 +156,141 @@
             }
 		?>
 
-        <?php if($_SESSION['status'] != 'DEVELOPER'): ?>
-               <form method="POST" action="" class="form-horizontal">
-                   <div class="form-group">
-                       <label class="col-sm-2">Tipe Proyek</label>
+        <ul class="nav nav-tabs">
+            <li><a href="#info-proyek" class="nav active" data-toggle="tab">Info Proyek</a></li>
+            <li><a href="#stakeholders" class="nav" data-toggle="tab">Stakeholders</a></li>
+            <li><a href="#kompleksitas" class="nav" data-toggle="tab">Kompleksitas</a></li>
+            <li><a href="#pekerjaan" class="nav" data-toggle="tab">Pekerjaan</a></li>
+            <li><a href="#sdm" class="nav" data-toggle="tab">SDM</a></li>
+            <li><a href="#resiko" class="nav" data-toggle="tab">Resiko</a></li>
+            <?php
+                // show evm if is not manager
+                if($_SESSION['status'] != 'MANAGER'):
+            ?>
+                <li><a href="#evm" class="nav" data-toggle="tab">EVM</a></li>
+            <?php
+                endif;
+            ?>
+        </ul>
 
-                       <div class="col-sm-10 form-control-static">
-                           <?php echo tipe_proyek(substr($d->kode_proyek, 0, 1)); ?>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Kode Proyek</label>
-                       <div class="col-sm-10">
-                           <input type="text" name="kode_proyek" class="form-control" required="true" readonly value="<?php echo $d->kode_proyek; ?>"/>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Nama Proyek</label>
-                       <div class="col-sm-10">
-                           <input type="text" name="nama_proyek" class="form-control" required="true" value="<?php echo $d->nama_proyek; ?>"/>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Nama Client</label>
-                       <div class="col-sm-10">
-                           <input type="hidden" name="id_client" value="<?php $d->id_client; ?>">
-                           <div class="form-control-static"><?php echo $d->nama_client; ?></div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Tujuan Proyek</label>
-                       <div class="col-sm-10">
-                           <textarea name="tujuan" class="form-control"><?php echo $d->tujuan; ?></textarea>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Penjelasan asal muasal Proyek</label>
-                       <div class="col-sm-10">
-                           <textarea name="asal_muasal" class="form-control"><?php echo $d->asal_muasal; ?></textarea>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Fase dalam Proyek</label>
-                       <div class="col-sm-10">
-                           <textarea name="fase" class="form-control"><?php echo $d->fase; ?></textarea>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Biaya</label>
-                       <div class="col-sm-10">
-                           <div class="input-group">
-                               <span class="input-group-addon">Rp.</span>
-                               <input type="text" name="biaya" class="form-control" required="true" value="<?php echo $d->biaya; ?>"/>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Tanggal Mulai</label>
-                       <div class="col-sm-10">
-                           <input type="date" name="tanggal_mulai" class="form-control" required="true" value="<?php echo $d->tanggal_mulai; ?>"/>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label class="col-sm-2">Tanggal Selesai</label>
-                       <div class="col-sm-10">
-                           <input type="date" name="tanggal_selesai" class="form-control" required="true" value="<?php echo $d->tanggal_selesai; ?>"/>
-                       </div>
-                   </div>
-                   <!--<div class="form-group">
-                       <label class="col-sm-2">Status</label>
-                       <div class="col-sm-10">
-                           <input type="text" name="status" class="form-control" required="true"/>
-                       </div>
-                   </div>-->
-                   <input type="hidden" name="id_proyek" value="<?php echo $id_proyek; ?>">
-                   <button type="submit" name="update_proyek" class="btn btn-success">Simpan Data</button>
-               </form>
-		<!-- end body -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="info-proyek">
+                <h2 class="text-center"><?php echo $d->nama_proyek; ?></h2>
+                <?php if($_SESSION['status'] != 'DEVELOPER'): ?>
+                    <form method="POST" action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2">Tipe Proyek</label>
 
-        <?php else : ?>
-            <h2 class="text-center"><?php echo $d->nama_proyek; ?></h2>
-        <?php endif; ?>
+                            <div class="col-sm-10 form-control-static">
+                                <?php echo tipe_proyek(substr($d->kode_proyek, 0, 1)); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Kode Proyek</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="kode_proyek" class="form-control" required="true" readonly value="<?php echo $d->kode_proyek; ?>"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Nama Proyek</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="nama_proyek" class="form-control" required="true" value="<?php echo $d->nama_proyek; ?>"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Nama Client</label>
+                            <div class="col-sm-10">
+                                <input type="hidden" name="id_client" value="<?php $d->id_client; ?>">
+                                <div class="form-control-static"><?php echo $d->nama_client; ?></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Tujuan Proyek</label>
+                            <div class="col-sm-10">
+                                <textarea name="tujuan" class="form-control"><?php echo $d->tujuan; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Penjelasan asal muasal Proyek</label>
+                            <div class="col-sm-10">
+                                <textarea name="asal_muasal" class="form-control"><?php echo $d->asal_muasal; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Fase dalam Proyek</label>
+                            <div class="col-sm-10">
+                                <textarea name="fase" class="form-control"><?php echo $d->fase; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Biaya</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rp.</span>
+                                    <input type="text" name="biaya" class="form-control" required="true" value="<?php echo $d->biaya; ?>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Tanggal Mulai</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="tanggal_mulai" class="form-control" required="true" value="<?php echo $d->tanggal_mulai; ?>"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">Tanggal Selesai</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="tanggal_selesai" class="form-control" required="true" value="<?php echo $d->tanggal_selesai; ?>"/>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-sm-2">Status</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="status" class="form-control" required="true"/>
+                            </div>
+                        </div>-->
+                        <input type="hidden" name="id_proyek" value="<?php echo $id_proyek; ?>">
+                        <button type="submit" name="update_proyek" class="btn btn-success">Simpan Data</button>
+                    </form>
+                    <!-- end body -->
 
-        <div class="row">
-            <div class="col-md-6">
-                <h3 id="stakeholder">Stakeholders</h3>
+                <?php endif; ?>
+            </div>
+
+            <div class="tab-pane" id="stakeholders">
+                <h3>Stakeholders</h3>
                 <hr>
 
                 <?php if($_SESSION['status'] == 'MANAGER'): ?>
-                <form method="post" action="#stakeholder">
-                    <div class="form-group">
-                        <label>User</label>
-                        <select name="id_user" class="form-control">
-                            <option value="">--Silahkan pilih Stakeholders--</option>
-                            <?php
-                            $q_users = mysql_query("SELECT * FROM user");
-                            while($d_user = mysql_fetch_object($q_users)):
+                    <form method="post" action="#stakeholder">
+                        <div class="form-group">
+                            <label>User</label>
+                            <select name="id_user" class="form-control">
+                                <option value="">--Silahkan pilih Stakeholders--</option>
+                                <?php
+                                $q_users = mysql_query("SELECT * FROM user");
+                                while($d_user = mysql_fetch_object($q_users)):
+                                    ?>
+                                    <option value="<?php echo $d_user->id_user; ?>"><?php echo $d_user->nama; ?></option>
+                                <?php
+                                endwhile;
                                 ?>
-                                <option value="<?php echo $d_user->id_user; ?>"><?php echo $d_user->nama; ?></option>
-                            <?php
-                            endwhile;
-                            ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Tugas</label>
-                        <select name="tugas" class="form-control">
-                            <option value="Front End">Front End</option>
-                            <option value="Back End">Back End</option>
-                            <option value="Project Manager">Project Manager</option>
-                            <option value="Web Developer">Web Developer</option>
-                            <option value="CEO">CEO</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                    <input type="hidden" value="<?php echo $id_proyek; ?>" name="id_proyek">
-                    <button class="btn btn-primary" name="add_stakeholders">Simpan Stakeholder</button>
-                </form>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tugas</label>
+                            <select name="tugas" class="form-control">
+                                <option value="Front End">Front End</option>
+                                <option value="Back End">Back End</option>
+                                <option value="Project Manager">Project Manager</option>
+                                <option value="Web Developer">Web Developer</option>
+                                <option value="CEO">CEO</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <input type="hidden" value="<?php echo $id_proyek; ?>" name="id_proyek">
+                        <button class="btn btn-primary" name="add_stakeholders">Simpan Stakeholder</button>
+                    </form>
                 <?php endif; ?>
 
                 <table class="table">
@@ -301,15 +319,19 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
-                <h3 id="stakeholder">Kompleksitas</h3>
+
+            <div class="tab-pane" id="kompleksitas">
+                <h3>
+                    Kompleksitas
+                    <a href="beranda.php?page=detailproyek_kompleksitas.php&id=<?php echo $id_proyek; ?>" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-list"></i> Detail</a>
+                </h3>
                 <hr>
 
                 <?php
-                    $total_nilai_cfp = total_nilai_cfp($id_proyek);
-                    $total_nilai_rcaf = total_nilai_rcaf($id_proyek);
+                $total_nilai_cfp = total_nilai_cfp($id_proyek);
+                $total_nilai_rcaf = total_nilai_rcaf($id_proyek);
 
-                    $fp = $total_nilai_cfp * (0.65 + 0.01 * $total_nilai_rcaf);
+                $fp = $total_nilai_cfp * (0.65 + 0.01 * $total_nilai_rcaf);
                 ?>
 
                 <div class="row">
@@ -342,28 +364,13 @@
                         </h4>
                     </div>
                 </div>
-
-                <a href="beranda.php?page=detailproyek_kompleksitas.php&id=<?php echo $id_proyek; ?>" class="btn btn-info btn-block">Detail Kompleksitas</a>
-
             </div>
-        </div>
 
-        <!-- Rincian Pekerjaan -->
-
-
-        <a href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>" class="btn btn-success">Kalender Pekerjaan</a>
-
-
-        <div id="pekerjaan">
-            <ul class="nav nav-tabs">
-                <li><a href="#list-pekerjaan" class="nav active" data-toggle="tab">Struktur Rincian Kerja</a></li>
-                <li><a href="#sdm" class="nav active" data-toggle="tab">SDM</a></li>
-            </ul>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane active" id="list-pekerjaan">
+            <!-- Pekerjaan -->
+            <div class="tab-pane" id="pekerjaan">
                 <h3>Struktur Rincian Kerja</h3>
                 <hr>
+                <a href="datakalenderpekerjaan.php?id=<?php echo $id_proyek; ?>" class="btn btn-success">Kalender Pekerjaan</a>
 
                 <?php if($_SESSION['status'] == 'MANAGER'): ?>
                     <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#add-pekerjaan">
@@ -417,6 +424,7 @@
                 </table>
             </div>
 
+            <!-- SDM -->
             <div class="tab-pane" id="sdm">
                 <table class="table">
                     <thead>
@@ -427,12 +435,12 @@
                     </tr>
                     <tr>
 
-                    <?php
+                        <?php
                         $array_stakeholder = [];
                         $q_sdm_stakeholder = mysql_query("SELECT proyek_stakeholders.*, user.nama as user_nama FROM proyek_stakeholders JOIN user ON user.id_user=proyek_stakeholders.id_user WHERE id_proyek='$id_proyek'");
 
                         $i_developer = 1;
-                    while($r_sdm_stakeholder = mysql_fetch_object($q_sdm_stakeholder)):
+                        while($r_sdm_stakeholder = mysql_fetch_object($q_sdm_stakeholder)):
 
                             switch($r_sdm_stakeholder->tugas)
                             {
@@ -457,8 +465,8 @@
                             ];
 
                             ?>
-                        <td><?php echo $r_sdm_stakeholder->user_nama; ?></td>
-                    <?php endwhile; ?>
+                            <td><?php echo $r_sdm_stakeholder->user_nama; ?></td>
+                        <?php endwhile; ?>
                         <td colspan="2">Aksi</td>
                     </tr>
                     </thead>
@@ -493,7 +501,7 @@
                             }
 
                             while($r_pekerjaan_stakeholder = mysql_fetch_object($q_pekerjaan_stakeholder)):
-                            ?>
+                                ?>
                                 <td><?php echo strtoupper($r_pekerjaan_stakeholder->raci); ?></td>
                             <?php endwhile; ?>
                             <td>
@@ -509,18 +517,30 @@
                 </table>
             </div>
 
+            <!-- Resiko -->
+            <div class="tab-pane" id="resiko">
+                <h1>Data Resiko</h1>
+                <?php include "../komponen/management_resiko.php"; ?>
+            </div>
+
+            <!-- EVM -->
+            <?php
+                // show evm if is not manager
+                if($_SESSION['status'] != 'MANAGER'):
+            ?>
+                    <div class="tab-pane" id="evm">
+                        <?php include "../komponen/evm.php"; ?>
+                    </div>
+            <?php
+                endif;
+            ?>
+
         </div>
 
 
 
-        <?php
-            // show evm if is not manager
-            if($_SESSION['status'] != 'MANAGER')
-                include "../komponen/evm.php";
-        ?>
 
-        <h1>Data Resiko</h1>
-        <?php include "../komponen/management_resiko.php"; ?>
+
 
 
 
